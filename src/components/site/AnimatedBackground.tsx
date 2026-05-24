@@ -1,6 +1,7 @@
 import { motion } from "framer-motion";
+import { memo } from "react";
 
-export function AnimatedBackground() {
+export const AnimatedBackground = memo(function AnimatedBackground() {
   return (
     <div className="absolute inset-0 overflow-hidden -z-10 pointer-events-none">
       <div className="absolute inset-0 grid-bg opacity-60" />
@@ -47,4 +48,4 @@ export function AnimatedBackground() {
       </svg>
     </div>
   );
-}
+});
