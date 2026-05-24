@@ -4,11 +4,12 @@
   "compatibility_date": "2025-09-24",
   "compatibility_flags": ["nodejs_compat"],
   "main": "src/server.ts",
+  "migrations_dir": "migrations",
   "d1_databases": [
     {
       "binding": "DB",
       "database_name": "iqra365",
-      "database_id": "your-database-id"
+      "database_id": "your-database-id" // ← replace with the ID from `npx wrangler d1 create iqra365`
     }
   ],
 }
