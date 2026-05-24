@@ -44,6 +44,36 @@ for (const f of readdirSync(clientDir)) {
   }
 }
 
+// Patch shell component to strip <html>, <head>, <body> wrappers (SSR-only; invalid in SPA mode).
+// Find the shell function by its signature (parameter destructure + html element render).
+for (const f of readdirSync(clientDir)) {
+  if (!f.endsWith(".js") || f.includes(".map")) continue;
+  const path = join(clientDir, f);
+  let code = readFileSync(path, "utf-8");
+
+  const fnStartPat = /function (\w+)\(\{children:t\}\)\{return L\.jsxs\("html",\{/;
+  const fnMatch = code.match(fnStartPat);
+  if (fnMatch) {
+    const fnName = fnMatch[1];
+    const fnStart = fnMatch.index;
+    const bodyStart = fnStart + `function ${fnName}({children:t}){`.length;
+    // Walk forward counting braces to find the matching close-brace of the function body
+    let depth = 0;
+    let i = bodyStart - 1;
+    for (; i < code.length; i++) {
+      if (code[i] === "{") depth++;
+      else if (code[i] === "}") { depth--; if (depth === 0) break; }
+    }
+    const fnEnd = i; // index of the closing '}'
+    const oldFn = code.slice(fnStart, fnEnd + 1);
+    const newFn = `function ${fnName}({children:t}){return t}`;
+    code = code.slice(0, fnStart) + newFn + code.slice(fnEnd + 1);
+    writeFileSync(path, code);
+    console.log(`Patched shell component ${fnName} -> returns children directly in ${f}`);
+    break;
+  }
+}
+
 // Generate index.html — pick the largest index-*.js (main bundle, not a lazy route chunk)
 const entryJs = readdirSync(clientDir)
   .filter((f) => f.startsWith("index-") && f.endsWith(".js"))
