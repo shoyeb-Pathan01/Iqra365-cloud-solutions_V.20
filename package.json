@@ -6,8 +6,11 @@
   "scripts": {
     "dev": "vite dev",
     "build": "vite build",
+    "build:static": "vite build --config vite.config.static.ts && node scripts/generate-html.mjs",
     "build:dev": "vite build --mode development",
+    "vercel-build": "npm run build:static",
     "preview": "vite preview",
+    "preview:static": "npx serve dist/client -l 8080",
     "lint": "eslint .",
     "format": "prettier --write ."
   },
