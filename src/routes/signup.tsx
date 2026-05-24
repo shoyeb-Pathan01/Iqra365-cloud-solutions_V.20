@@ -1,11 +1,12 @@
 import { createFileRoute, Link, useNavigate } from "@tanstack/react-router";
-import { useEffect, useState } from "react";
+import { useEffect, useRef, useState } from "react";
+import { motion } from "framer-motion";
 import { useAuth } from "@/components/AuthProvider";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
 import { AnimatedBackground } from "@/components/site/AnimatedBackground";
-import { User, Mail, Lock, ShieldCheck, ArrowRight } from "lucide-react";
+import { User, Mail, Lock, ShieldCheck, ArrowRight, Loader2 } from "lucide-react";
 
 export const Route = createFileRoute("/signup")({
   head: () => ({
@@ -27,20 +28,29 @@ function SignupPage() {
   const [confirm, setConfirm] = useState("");
   const [error, setError] = useState("");
   const [loading, setLoading] = useState(false);
+  const nameRef = useRef<HTMLInputElement>(null);
 
   useEffect(() => {
     if (user) navigate({ to: "/" });
+    else nameRef.current?.focus();
   }, [user, navigate]);
 
   if (user) return null;
 
+  function validate() {
+    if (!name.trim() || name.trim().length < 2) { setError("Please enter your full name"); return false; }
+    if (!/^\S+@\S+\.\S+$/.test(email)) { setError("Please enter a valid email address"); return false; }
+    if (password.length < 6) { setError("Password must be at least 6 characters"); return false; }
+    if (password !== confirm) { setError("Passwords do not match"); return false; }
+    return true;
+  }
+
   async function handleSubmit(e: React.FormEvent) {
     e.preventDefault();
     setError("");
-    if (password !== confirm) { setError("Passwords do not match"); return; }
-    if (password.length < 6) { setError("Password must be at least 6 characters"); return; }
+    if (!validate()) return;
     setLoading(true);
-    const result = await signup(name, email, password);
+    const result = await signup(name.trim(), email, password);
     setLoading(false);
     if (result.error) {
       setError(result.error);
@@ -54,7 +64,7 @@ function SignupPage() {
       <AnimatedBackground />
       <div className="container mx-auto px-4 relative">
         <div className="max-w-md mx-auto">
-          <div className="glass rounded-3xl p-8 md:p-10 shadow-elegant border-2 border-primary/10">
+          <motion.div initial={{ opacity: 0, y: 24 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.4 }} className="glass rounded-3xl p-8 md:p-10 shadow-elegant border-2 border-primary/10">
             <div className="text-center mb-8">
               <h1 className="text-3xl font-bold mb-2">Create your account</h1>
               <p className="text-muted-foreground text-sm">
@@ -63,9 +73,9 @@ function SignupPage() {
             </div>
 
             {error && (
-              <div className="mb-6 rounded-xl bg-destructive/10 border border-destructive/20 px-4 py-3 text-sm text-destructive text-center">
+              <motion.div initial={{ opacity: 0, y: -8 }} animate={{ opacity: 1, y: 0 }} className="mb-6 rounded-xl bg-destructive/10 border border-destructive/20 px-4 py-3 text-sm text-destructive text-center">
                 {error}
-              </div>
+              </motion.div>
             )}
 
             <form onSubmit={handleSubmit} className="space-y-5">
@@ -74,8 +84,10 @@ function SignupPage() {
                 <div className="relative mt-1.5">
                   <User className="absolute left-3 top-1/2 -translate-y-1/2 h-4 w-4 text-muted-foreground pointer-events-none" />
                   <Input
+                    ref={nameRef}
                     id="name"
                     type="text"
+                    autoComplete="name"
                     required
                     value={name}
                     onChange={(e) => setName(e.target.value)}
@@ -91,6 +103,7 @@ function SignupPage() {
                   <Input
                     id="email"
                     type="email"
+                    autoComplete="email"
                     required
                     value={email}
                     onChange={(e) => setEmail(e.target.value)}
@@ -107,6 +120,7 @@ function SignupPage() {
                     <Input
                       id="password"
                       type="password"
+                      autoComplete="new-password"
                       required
                       value={password}
                       onChange={(e) => setPassword(e.target.value)}
@@ -122,6 +136,7 @@ function SignupPage() {
                     <Input
                       id="confirm"
                       type="password"
+                      autoComplete="new-password"
                       required
                       value={confirm}
                       onChange={(e) => setConfirm(e.target.value)}
@@ -137,7 +152,7 @@ function SignupPage() {
                 size="lg"
                 className="w-full bg-gradient-orange text-white border-0 shadow-glow-orange group"
               >
-                {loading ? "Creating account..." : "Create account"}
+                {loading ? <><Loader2 className="h-4 w-4 animate-spin" /> Creating account...</> : "Create account"}
                 {!loading && <ArrowRight className="h-4 w-4 group-hover:translate-x-1 transition-transform" />}
               </Button>
             </form>
@@ -150,7 +165,7 @@ function SignupPage() {
                 </Link>
               </p>
             </div>
-          </div>
+          </motion.div>
         </div>
       </div>
     </section>

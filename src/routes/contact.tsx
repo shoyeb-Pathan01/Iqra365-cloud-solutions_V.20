@@ -7,7 +7,7 @@ import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
 import { Textarea } from "@/components/ui/textarea";
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@/components/ui/select";
-import { CheckCircle2, Mail, MapPin, Phone } from "lucide-react";
+import { CheckCircle2, Mail, MapPin, Phone, Loader2 } from "lucide-react";
 import { services } from "@/components/site/ServicesGrid";
 
 export const Route = createFileRoute("/contact")({
@@ -135,18 +135,18 @@ function ContactPage() {
                     </div>
                     <div>
                       <Label htmlFor="email">Email *</Label>
-                      <Input id="email" type="email" value={form.email} onChange={(e) => setForm({ ...form, email: e.target.value })} className="mt-1.5" />
+                      <Input id="email" type="email" autoComplete="email" value={form.email} onChange={(e) => setForm({ ...form, email: e.target.value })} className="mt-1.5" />
                       {errors.email && <p className="text-xs text-destructive mt-1">{errors.email}</p>}
                     </div>
                   </div>
                   <div className="grid sm:grid-cols-2 gap-4">
                     <div>
                       <Label htmlFor="phone">Phone</Label>
-                      <Input id="phone" value={form.phone} onChange={(e) => setForm({ ...form, phone: e.target.value })} className="mt-1.5" />
+                      <Input id="phone" type="tel" autoComplete="tel" value={form.phone} onChange={(e) => setForm({ ...form, phone: e.target.value })} className="mt-1.5" />
                     </div>
                     <div>
                       <Label htmlFor="company">Company *</Label>
-                      <Input id="company" value={form.company} onChange={(e) => setForm({ ...form, company: e.target.value })} className="mt-1.5" />
+                      <Input id="company" autoComplete="organization" value={form.company} onChange={(e) => setForm({ ...form, company: e.target.value })} className="mt-1.5" />
                       {errors.company && <p className="text-xs text-destructive mt-1">{errors.company}</p>}
                     </div>
                   </div>
@@ -166,7 +166,7 @@ function ContactPage() {
                   </div>
                   {errors._form && <p className="text-xs text-destructive text-center">{errors._form}</p>}
                   <Button type="submit" size="lg" disabled={submitting} className="w-full bg-gradient-orange text-white border-0 shadow-glow-orange">
-                    {submitting ? "Sending..." : "Send Enquiry"}
+                    {submitting ? <><Loader2 className="h-4 w-4 animate-spin" /> Sending...</> : "Send Enquiry"}
                   </Button>
                 </form>
               )}
