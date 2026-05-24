@@ -1,4 +1,5 @@
 import { createContext, useContext, useState, useEffect, useCallback, type ReactNode } from "react";
+import * as clientAuth from "@/lib/client-auth";
 
 type User = { id: number; name: string; email: string };
 
@@ -13,27 +14,14 @@ type AuthContextType = {
 const AuthContext = createContext<AuthContextType | null>(null);
 
 function getToken(): string | null {
-  return typeof window !== "undefined" ? localStorage.getItem("auth_token") : null;
+  if (typeof window === "undefined") return null;
+  return localStorage.getItem("auth_token");
 }
 
 function setToken(token: string | null) {
-  if (typeof window !== "undefined") {
-    if (token) localStorage.setItem("auth_token", token);
-    else localStorage.removeItem("auth_token");
-  }
-}
-
-async function apiPost(path: string, body: unknown) {
-  return fetch(path, {
-    method: "POST",
-    headers: { "Content-Type": "application/json" },
-    body: JSON.stringify(body),
-  });
-}
-
-async function apiGet(path: string) {
-  const token = getToken();
-  return fetch(path, { headers: token ? { Authorization: `Bearer ${token}` } : {} });
+  if (typeof window === "undefined") return;
+  if (token) localStorage.setItem("auth_token", token);
+  else localStorage.removeItem("auth_token");
 }
 
 export function AuthProvider({ children }: { children: ReactNode }) {
@@ -42,37 +30,33 @@ export function AuthProvider({ children }: { children: ReactNode }) {
 
   useEffect(() => {
     const token = getToken();
-    if (!token) { setLoading(false); return; }
-    apiGet("/api/auth/session")
-      .then((r) => r.json() as Promise<{ user: User | null }>)
-      .then((data) => { setUser(data.user || null); })
-      .catch(() => { setToken(null); })
-      .finally(() => setLoading(false));
+    if (token) {
+      const u = clientAuth.getSessionUser(token);
+      if (u) setUser(u);
+      else setToken(null);
+    }
+    setLoading(false);
   }, []);
 
   const login = useCallback(async (email: string, password: string) => {
-    const res = await apiPost("/api/auth/login", { email, password });
-    const data: { error?: string; token?: string; user?: User } = await res.json();
-    if (data.error) return { error: data.error };
-    setToken(data.token!);
-    setUser(data.user!);
+    const result = await clientAuth.login(email, password);
+    if (result.error) return { error: result.error };
+    setToken(result.token!);
+    setUser(result.user!);
     return {};
   }, []);
 
   const signup = useCallback(async (name: string, email: string, password: string) => {
-    const res = await apiPost("/api/auth/signup", { name, email, password });
-    const data: { error?: string; token?: string; user?: User } = await res.json();
-    if (data.error) return { error: data.error };
-    setToken(data.token!);
-    setUser(data.user!);
+    const result = await clientAuth.signup(name, email, password);
+    if (result.error) return { error: result.error };
+    setToken(result.token!);
+    setUser(result.user!);
     return {};
   }, []);
 
   const logout = useCallback(async () => {
     const token = getToken();
-    if (token) {
-      try { await apiPost("/api/auth/logout", {}); } catch { /* ignore */ }
-    }
+    if (token) clientAuth.logout(token);
     setToken(null);
     setUser(null);
   }, []);

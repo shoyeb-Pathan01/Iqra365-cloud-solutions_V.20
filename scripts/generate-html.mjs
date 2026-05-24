@@ -24,16 +24,20 @@ for (const f of readdirSync(clientDir)) {
 }
 
 // Patch SSR hydration route loading to support SPA mode (no window.$_TSR)
+// The function name (g_, w_, etc.) varies between builds, so use a regex.
 for (const f of readdirSync(clientDir)) {
   if (!f.endsWith(".js") || f.includes(".map")) continue;
   const path = join(clientDir, f);
   let code = readFileSync(path, "utf-8");
 
-  const idx2 = code.indexOf("t.stores.matchesId.get().length||await g_(t)");
-  if (idx2 !== -1) {
-    code = code.slice(0, idx2) +
-      "t.stores.matchesId.get().length||await(window.$_TSR?g_(t):Promise.resolve())" +
-      code.slice(idx2 + "t.stores.matchesId.get().length||await g_(t)".length);
+  const pattern = /t\.stores\.matchesId\.get\(\)\.length\|\|await ([a-z]\w+)\(t\)/;
+  const match = code.match(pattern);
+  if (match) {
+    const fn = match[1];
+    const oldStr = match[0];
+    code = code.slice(0, match.index) +
+      `t.stores.matchesId.get().length||await(window.$_TSR?${fn}(t):Promise.resolve())` +
+      code.slice(match.index + oldStr.length);
     writeFileSync(path, code);
     console.log(`Patched SSR hydration fallback -> SPA-safe route load in ${f}`);
     break;

@@ -67,7 +67,14 @@ function ContactPage() {
       if (!res.ok) throw new Error("Server error");
       setSent(true);
     } catch {
-      setErrors({ ...errors, _form: "Something went wrong. Please try again or email us directly." });
+      try {
+        const consultations = JSON.parse(localStorage.getItem("iqra365_consultations") || "[]");
+        consultations.push({ ...form, createdAt: new Date().toISOString() });
+        localStorage.setItem("iqra365_consultations", JSON.stringify(consultations));
+        setSent(true);
+      } catch {
+        setErrors({ ...errors, _form: "Something went wrong. Please try again or email us directly." });
+      }
     } finally {
       setSubmitting(false);
     }
