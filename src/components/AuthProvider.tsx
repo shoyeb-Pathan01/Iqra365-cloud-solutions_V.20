@@ -1,5 +1,4 @@
 import { createContext, useContext, useState, useEffect, useCallback, type ReactNode } from "react";
-import * as clientAuth from "@/lib/client-auth";
 
 type User = { id: number; name: string; email: string };
 
@@ -31,32 +30,55 @@ export function AuthProvider({ children }: { children: ReactNode }) {
   useEffect(() => {
     const token = getToken();
     if (token) {
-      const u = clientAuth.getSessionUser(token);
-      if (u) setUser(u);
-      else setToken(null);
+      fetch("/api/auth/session", {
+        headers: { Authorization: `Bearer ${token}` },
+      })
+        .then((r) => r.json())
+        .then((data) => {
+          if (data.user) setUser(data.user);
+          else setToken(null);
+        })
+        .catch(() => setToken(null))
+        .finally(() => setLoading(false));
+    } else {
+      setLoading(false);
     }
-    setLoading(false);
   }, []);
 
   const login = useCallback(async (email: string, password: string) => {
-    const result = await clientAuth.login(email, password);
-    if (result.error) return { error: result.error };
-    setToken(result.token!);
-    setUser(result.user!);
+    const res = await fetch("/api/auth/login", {
+      method: "POST",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify({ email, password }),
+    });
+    const data = await res.json();
+    if (data.error) return { error: data.error };
+    setToken(data.token);
+    setUser(data.user);
     return {};
   }, []);
 
   const signup = useCallback(async (name: string, email: string, password: string) => {
-    const result = await clientAuth.signup(name, email, password);
-    if (result.error) return { error: result.error };
-    setToken(result.token!);
-    setUser(result.user!);
+    const res = await fetch("/api/auth/signup", {
+      method: "POST",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify({ name, email, password }),
+    });
+    const data = await res.json();
+    if (data.error) return { error: data.error };
+    setToken(data.token);
+    setUser(data.user);
     return {};
   }, []);
 
   const logout = useCallback(async () => {
     const token = getToken();
-    if (token) clientAuth.logout(token);
+    if (token) {
+      await fetch("/api/auth/logout", {
+        method: "POST",
+        headers: { Authorization: `Bearer ${token}` },
+      });
+    }
     setToken(null);
     setUser(null);
   }, []);
