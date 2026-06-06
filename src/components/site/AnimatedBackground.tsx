@@ -30,7 +30,7 @@ export const AnimatedBackground = memo(function AnimatedBackground() {
             <stop offset="100%" stopColor="oklch(0.55 0.24 240)" stopOpacity="0" />
           </radialGradient>
         </defs>
-        {Array.from({ length: 30 }).map((_, i) => {
+        {Array.from({ length: 15 }).map((_, i) => {
           const cx = (i * 137) % 100;
           const cy = (i * 73) % 100;
           return (

@@ -1,6 +1,5 @@
 import { createFileRoute, Link, useNavigate } from "@tanstack/react-router";
 import { useEffect, useRef, useState } from "react";
-import { motion } from "framer-motion";
 import { useAuth } from "@/components/AuthProvider";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
@@ -60,16 +59,16 @@ function LoginPage() {
       <AnimatedBackground />
       <div className="container mx-auto px-4 relative">
         <div className="max-w-md mx-auto">
-          <motion.div initial={{ opacity: 0, y: 24 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.4 }} className="glass rounded-3xl p-8 md:p-10 shadow-elegant border-2 border-primary/10">
+          <div className="animate-fade-in-up glass rounded-3xl p-8 md:p-10 shadow-elegant border-2 border-primary/10">
             <div className="text-center mb-8">
               <h1 className="text-3xl font-bold mb-2">Welcome back</h1>
               <p className="text-muted-foreground text-sm">Sign in to your Iqra365 Cloud Solutions account</p>
             </div>
 
             {error && (
-              <motion.div initial={{ opacity: 0, y: -8 }} animate={{ opacity: 1, y: 0 }} className="mb-6 rounded-xl bg-destructive/10 border border-destructive/20 px-4 py-3 text-sm text-destructive text-center">
+              <div className="animate-fade-in mb-6 rounded-xl bg-destructive/10 border border-destructive/20 px-4 py-3 text-sm text-destructive text-center">
                 {error}
-              </motion.div>
+              </div>
             )}
 
             <form onSubmit={handleSubmit} className="space-y-5">
@@ -125,7 +124,7 @@ function LoginPage() {
                 </Link>
               </p>
             </div>
-          </motion.div>
+          </div>
         </div>
       </div>
     </section>

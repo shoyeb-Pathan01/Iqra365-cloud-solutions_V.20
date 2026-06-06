@@ -1,6 +1,5 @@
 import { createFileRoute } from "@tanstack/react-router";
-import { motion } from "framer-motion";
-import { useEffect, useRef, useState } from "react";
+import { useEffect, useRef, useState, useCallback } from "react";
 import { saveConsultation } from "@/lib/db";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
@@ -8,7 +7,7 @@ import { Label } from "@/components/ui/label";
 import { Textarea } from "@/components/ui/textarea";
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@/components/ui/select";
 import { CheckCircle2, Mail, MapPin, Phone, Loader2 } from "lucide-react";
-import { services } from "@/components/site/ServicesGrid";
+import { useContent } from "@/lib/content";
 
 export const Route = createFileRoute("/contact")({
   head: () => ({
@@ -34,6 +33,9 @@ export const Route = createFileRoute("/contact")({
 });
 
 function ContactPage() {
+  const content = useContent();
+  const sg = (content.services_grid as Record<string, unknown>) ?? {};
+  const svcOptions = (sg.services as Array<{ icon: string; title: string; desc: string }>) ?? [];
   const [sent, setSent] = useState(false);
   const [submitting, setSubmitting] = useState(false);
   const [form, setForm] = useState({ name: "", email: "", phone: "", company: "", service: "", message: "" });
@@ -42,6 +44,10 @@ function ContactPage() {
 
   useEffect(() => {
     nameRef.current?.focus();
+  }, []);
+
+  const setField = useCallback((field: string) => (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
+    setForm(f => ({ ...f, [field]: e.target.value }));
   }, []);
 
   function validate() {
@@ -84,7 +90,7 @@ function ContactPage() {
     <section className="pt-36 pb-24">
       <div className="container mx-auto px-4 max-w-6xl">
         <div className="grid lg:grid-cols-5 gap-6 md:gap-10">
-          <motion.div initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} className="lg:col-span-2">
+          <div className="animate-fade-in lg:col-span-2">
             <span className="text-xs uppercase tracking-[0.2em] text-primary font-semibold">Contact</span>
             <h1 className="text-4xl md:text-5xl font-bold mt-3 mb-6">
               Let's build your <span className="text-gradient-brand">secure cloud</span>
@@ -115,38 +121,38 @@ function ContactPage() {
                 </div>
               </div>
             </div>
-          </motion.div>
+          </div>
 
-          <motion.div initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} transition={{ delay: 0.1 }} className="lg:col-span-3">
+          <div className="animate-fade-in animate-delay-100 lg:col-span-3">
             <div className="glass rounded-3xl p-8 shadow-elegant">
               {sent ? (
-                <motion.div initial={{ opacity: 0, scale: 0.95 }} animate={{ opacity: 1, scale: 1 }} className="text-center py-16">
+                <div className="text-center py-16">
                   <CheckCircle2 className="h-16 w-16 mx-auto text-green-brand mb-4" />
                   <h3 className="text-2xl font-bold mb-2">Thanks, {form.name.split(" ")[0]}!</h3>
                   <p className="text-muted-foreground">We've received your enquiry and will reply within one business day.</p>
-                </motion.div>
+                </div>
               ) : (
                 <form onSubmit={onSubmit} className="space-y-5">
                   <div className="grid sm:grid-cols-2 gap-4">
                     <div>
                       <Label htmlFor="name">Full name *</Label>
-                      <Input ref={nameRef} id="name" value={form.name} onChange={(e) => setForm({ ...form, name: e.target.value })} className="mt-1.5" />
+                      <Input ref={nameRef} id="name" value={form.name} onChange={setField("name")} className="mt-1.5" />
                       {errors.name && <p className="text-xs text-destructive mt-1">{errors.name}</p>}
                     </div>
                     <div>
                       <Label htmlFor="email">Email *</Label>
-                      <Input id="email" type="email" autoComplete="email" value={form.email} onChange={(e) => setForm({ ...form, email: e.target.value })} className="mt-1.5" />
+                      <Input id="email" type="email" autoComplete="email" value={form.email} onChange={setField("email")} className="mt-1.5" />
                       {errors.email && <p className="text-xs text-destructive mt-1">{errors.email}</p>}
                     </div>
                   </div>
                   <div className="grid sm:grid-cols-2 gap-4">
                     <div>
                       <Label htmlFor="phone">Phone</Label>
-                      <Input id="phone" type="tel" autoComplete="tel" value={form.phone} onChange={(e) => setForm({ ...form, phone: e.target.value })} className="mt-1.5" />
+                      <Input id="phone" type="tel" autoComplete="tel" value={form.phone} onChange={setField("phone")} className="mt-1.5" />
                     </div>
                     <div>
                       <Label htmlFor="company">Company *</Label>
-                      <Input id="company" autoComplete="organization" value={form.company} onChange={(e) => setForm({ ...form, company: e.target.value })} className="mt-1.5" />
+                      <Input id="company" autoComplete="organization" value={form.company} onChange={setField("company")} className="mt-1.5" />
                       {errors.company && <p className="text-xs text-destructive mt-1">{errors.company}</p>}
                     </div>
                   </div>
@@ -155,13 +161,13 @@ function ContactPage() {
                     <Select value={form.service} onValueChange={(v) => setForm({ ...form, service: v })}>
                       <SelectTrigger className="mt-1.5"><SelectValue placeholder="Choose a service" /></SelectTrigger>
                       <SelectContent>
-                        {services.map((s) => <SelectItem key={s.title} value={s.title}>{s.title}</SelectItem>)}
+                        {svcOptions.map((s) => <SelectItem key={s.title} value={s.title}>{s.title}</SelectItem>)}
                       </SelectContent>
                     </Select>
                   </div>
                   <div>
                     <Label htmlFor="message">Message *</Label>
-                    <Textarea id="message" rows={5} value={form.message} onChange={(e) => setForm({ ...form, message: e.target.value })} className="mt-1.5" />
+                    <Textarea id="message" rows={5} value={form.message} onChange={setField("message")} className="mt-1.5" />
                     {errors.message && <p className="text-xs text-destructive mt-1">{errors.message}</p>}
                   </div>
                   {errors._form && <p className="text-xs text-destructive text-center">{errors._form}</p>}
@@ -171,7 +177,7 @@ function ContactPage() {
                 </form>
               )}
             </div>
-          </motion.div>
+          </div>
         </div>
       </div>
     </section>

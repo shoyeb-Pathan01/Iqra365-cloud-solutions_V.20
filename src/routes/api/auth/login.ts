@@ -14,7 +14,9 @@ export const Route = createFileRoute("/api/auth/login")({
           if (result.error) {
             return Response.json(result, { status: 401 });
           }
-          return Response.json(result);
+          return new Response(JSON.stringify(result), {
+            headers: { "content-type": "application/json", "cache-control": "no-store" },
+          });
         } catch {
           return Response.json({ error: "Invalid request" }, { status: 400 });
         }

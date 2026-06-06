@@ -7,7 +7,9 @@ export const Route = createFileRoute("/api/auth/logout")({
       POST: async ({ request }) => {
         const token = getTokenFromRequest(request);
         if (token) await logout(token);
-        return Response.json({ ok: true });
+        return new Response(JSON.stringify({ ok: true }), {
+          headers: { "content-type": "application/json", "cache-control": "no-store" },
+        });
       },
     },
   },

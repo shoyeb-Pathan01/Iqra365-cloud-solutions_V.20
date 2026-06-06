@@ -17,7 +17,10 @@ export const Route = createFileRoute("/api/auth/signup")({
           if (result.error) {
             return Response.json(result, { status: 409 });
           }
-          return Response.json(result, { status: 201 });
+          return new Response(JSON.stringify(result), {
+            status: 201,
+            headers: { "content-type": "application/json", "cache-control": "no-store" },
+          });
         } catch {
           return Response.json({ error: "Invalid request" }, { status: 400 });
         }

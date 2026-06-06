@@ -3,7 +3,7 @@ import { Logo } from "@/components/Logo";
 import { useTheme } from "@/components/ThemeProvider";
 import { useAuth } from "@/components/AuthProvider";
 import { Button } from "@/components/ui/button";
-import { Moon, Sun, Menu, X, LogOut, User } from "lucide-react";
+import { Moon, Sun, Menu, X, LogOut } from "lucide-react";
 import { useEffect, useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 

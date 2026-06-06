@@ -1,16 +1,21 @@
-import { motion, useInView } from "framer-motion";
 import { useEffect, useRef, useState } from "react";
-
-const stats = [
-  { value: 120, suffix: "+", label: "Projects Delivered" },
-  { value: 45, suffix: "+", label: "Enterprise Clients" },
-  { value: 25, suffix: "+", label: "Microsoft Certifications" },
-  { value: 8, suffix: "+", label: "Years of Expertise" },
-];
+import { useContent } from "@/lib/content";
 
 function Counter({ to, suffix }: { to: number; suffix: string }) {
   const ref = useRef<HTMLSpanElement>(null);
-  const inView = useInView(ref, { once: true });
+  const [inView, setInView] = useState(false);
+  useEffect(() => {
+    const el = ref.current;
+    if (!el) return;
+    const observer = new IntersectionObserver(
+      ([entry]) => {
+        if (entry.isIntersecting) { setInView(true); observer.unobserve(el); }
+      },
+      { threshold: 0 }
+    );
+    observer.observe(el);
+    return () => observer.disconnect();
+  }, []);
   const [val, setVal] = useState(0);
   useEffect(() => {
     if (!inView) return;
@@ -27,24 +32,22 @@ function Counter({ to, suffix }: { to: number; suffix: string }) {
 }
 
 export function Stats() {
+  const content = useContent();
+  const stats = (content.stats as Array<{ value: number; suffix: string; label: string }>) ?? [];
   return (
     <section className="py-20">
       <div className="container mx-auto px-4">
         <div className="glass rounded-3xl p-6 sm:p-10 md:p-14 grid grid-cols-2 md:grid-cols-4 gap-6 sm:gap-8 shadow-elegant">
           {stats.map((s, i) => (
-            <motion.div
+            <div
               key={s.label}
-              initial={{ opacity: 0, y: 20 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-              transition={{ delay: i * 0.1 }}
-              className="text-center"
+              className={`animate-fade-in-up animate-delay-${i * 100} text-center`}
             >
               <div className="text-4xl md:text-5xl font-bold text-gradient-brand mb-2">
                 <Counter to={s.value} suffix={s.suffix} />
               </div>
               <p className="text-sm text-muted-foreground">{s.label}</p>
-            </motion.div>
+            </div>
           ))}
         </div>
       </div>

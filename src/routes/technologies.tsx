@@ -1,10 +1,10 @@
 import { createFileRoute } from "@tanstack/react-router";
-import { motion } from "framer-motion";
 import {
   Cloud, Users, Shield, Database, Zap, Code2,
-  CheckCircle2, ExternalLink,
+  CheckCircle2, ExternalLink, type LucideIcon,
 } from "lucide-react";
 import { CTA } from "@/components/site/CTA";
+import { useContent } from "@/lib/content";
 
 export const Route = createFileRoute("/technologies")({
   head: () => ({
@@ -20,127 +20,37 @@ export const Route = createFileRoute("/technologies")({
   component: TechPage,
 });
 
-const categories = [
-  {
-    icon: Cloud,
-    name: "Cloud Platform",
-    desc: "Enterprise-grade Azure infrastructure, DevOps pipelines, and hybrid cloud management.",
-    items: [
-      { name: "Microsoft Azure", desc: "Compute, storage, networking & landing zones" },
-      { name: "Azure DevOps", desc: "CI/CD pipelines, repos & agile boards" },
-      { name: "Azure Arc", desc: "Multi-cloud & hybrid management plane" },
-      { name: "Azure Monitor", desc: "Full-stack observability & alerting" },
-      { name: "Azure Functions", desc: "Serverless compute for event-driven apps" },
-      { name: "AKS", desc: "Managed Kubernetes container orchestration" },
-      { name: "Azure API Management", desc: "API gateway, publishing & lifecycle" },
-    ],
-  },
-  {
-    icon: Users,
-    name: "Productivity & Modern Workplace",
-    desc: "Collaboration, communication, and document management across your organization.",
-    items: [
-      { name: "Microsoft 365", desc: "Enterprise productivity & collaboration suite" },
-      { name: "Microsoft Teams", desc: "Chat, meetings, VoIP & channel-based work" },
-      { name: "SharePoint Online", desc: "Intranet, document management & portals" },
-      { name: "Exchange Online", desc: "Cloud email, calendaring & compliance" },
-      { name: "OneDrive for Business", desc: "Personal cloud storage & file sync" },
-      { name: "Viva Engage", desc: "Employee comms & community platform" },
-      { name: "Power BI", desc: "Interactive dashboards & business analytics" },
-    ],
-  },
-  {
-    icon: Shield,
-    name: "Security & Identity",
-    desc: "End-to-end protection with Microsoft's unified security stack and Zero Trust architecture.",
-    items: [
-      { name: "Microsoft Defender XDR", desc: "Extended detection & response across domains" },
-      { name: "Microsoft Sentinel", desc: "Cloud-native SIEM + SOAR (built on Azure)" },
-      { name: "Entra ID (Azure AD)", desc: "Identity, SSO, MFA & conditional access" },
-      { name: "Microsoft Purview", desc: "Data governance, risk & compliance portal" },
-      { name: "Microsoft Intune", desc: "MDM, MAM & endpoint configuration" },
-      { name: "Privileged Identity Mgmt", desc: "JIT privileged access & access reviews" },
-      { name: "Defender Cloud Apps", desc: "CASB for shadow IT & app governance" },
-    ],
-  },
-  {
-    icon: Database,
-    name: "Data & AI",
-    desc: "Intelligent data platforms, analytics, and AI services from Microsoft's portfolio.",
-    items: [
-      { name: "Azure OpenAI Service", desc: "GPT-4, GPT-4o models with enterprise SLAs" },
-      { name: "Microsoft Copilot", desc: "AI assistant across M365, Dynamics & Fabric" },
-      { name: "Azure AI Foundry", desc: "End-to-end AI development & deployment" },
-      { name: "Microsoft Fabric", desc: "Unified analytics SaaS (Lakehouse, BI, AI)" },
-      { name: "Azure Synapse Analytics", desc: "Big data & data warehousing engine" },
-      { name: "Azure SQL / Cosmos DB", desc: "Relational & NoSQL managed databases" },
-    ],
-  },
-  {
-    icon: Zap,
-    name: "Automation & DevOps",
-    desc: "Infrastructure as Code, low-code automation, and intelligent orchestration.",
-    items: [
-      { name: "Power Platform", desc: "Low-code apps, automations & chatbots" },
-      { name: "Power Automate", desc: "Workflow automation across 400+ services" },
-      { name: "Logic Apps", desc: "Enterprise integration & API orchestration" },
-      { name: "Azure Bicep", desc: "Declarative ARM infrastructure as code" },
-      { name: "Terraform", desc: "Multi-cloud IaC (AWS, Azure, GCP)" },
-      { name: "GitHub Actions", desc: "CI/CD automation integrated with Azure" },
-      { name: "Docker / ACR", desc: "Containerisation & Azure Container Registry" },
-    ],
-  },
-  {
-    icon: Code2,
-    name: "Development & Engineering",
-    desc: "Modern frameworks, languages, and tools we use to build and ship reliable solutions.",
-    items: [
-      { name: "React / TypeScript", desc: "Component-driven UIs with type safety" },
-      { name: ".NET / C#", desc: "Enterprise back-end & API development" },
-      { name: "Node.js / Python", desc: "Server-side scripting & automation" },
-      { name: "GitHub / GitLab", desc: "Version control, pull requests & reviews" },
-      { name: "ESLint / Prettier", desc: "Automated code quality & formatting" },
-      { name: "Playwright / Vitest", desc: "E2E testing & unit testing frameworks" },
-      { name: "Bicep / ARM", desc: "Infrastructure as Code for Azure" },
-    ],
-  },
-];
-
-const partners = [
-  "Microsoft Solutions Partner – Azure Infrastructure",
-  "Microsoft Solutions Partner – Security",
-  "Microsoft Solutions Partner – Modern Work",
-  "Microsoft Solutions Partner – Data & AI (Azure)",
-  "Microsoft Solutions Partner – Digital & App Innovation (Azure)",
-];
+const techIconMap: Record<string, LucideIcon> = { Cloud, Users, Shield, Database, Zap, Code2 };
 
 function TechPage() {
+  const content = useContent();
+  const tech = (content.technologies as Record<string, unknown>) ?? {};
+  const categories = (tech.categories as Array<{ icon: string; name: string; desc: string; items: Array<{ name: string; desc: string }> }>) ?? [];
+  const partners = (tech.partners as string[]) ?? [];
+
   return (
     <section className="pt-36 pb-24">
       <div className="container mx-auto px-4 max-w-6xl">
-        <motion.div initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} className="text-center max-w-3xl mx-auto mb-16">
+        <div className="animate-fade-in-up text-center max-w-3xl mx-auto mb-16">
           <span className="text-xs uppercase tracking-[0.2em] text-primary font-semibold">Technologies</span>
           <h1 className="text-4xl md:text-6xl font-bold mt-3 mb-4">
-            Our <span className="text-gradient-brand">tech stack</span>
+            {(tech.page_title as string) ?? "Our tech stack"}
           </h1>
           <p className="text-muted-foreground text-base md:text-lg">
-            A modern, Microsoft-centric stack — battle-tested across regulated industries. Every technology we deploy is covered by internal expertise and, where applicable, Microsoft partner accreditations.
+            {(tech.page_description as string) ?? "A modern, Microsoft-centric stack — battle-tested across regulated industries."}
           </p>
-        </motion.div>
+        </div>
 
         <div className="grid md:grid-cols-2 gap-6">
-          {categories.map((c, i) => (
-            <motion.div
+          {categories.map((c, i) => {
+            const CatIcon = techIconMap[c.icon] ?? Cloud;
+            return <div
               key={c.name}
-              initial={{ opacity: 0, y: 20 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-              transition={{ delay: i * 0.06 }}
-              className="glass rounded-2xl p-6 md:p-8"
+              className={`animate-fade-in-up animate-delay-${i * 60} glass rounded-2xl p-6 md:p-8`}
             >
               <div className="flex items-start gap-4 mb-5">
                 <div className="shrink-0 w-11 h-11 rounded-xl bg-primary/10 flex items-center justify-center">
-                  <c.icon className="h-5 w-5 text-primary" />
+                  <CatIcon className="h-5 w-5 text-primary" />
                 </div>
                 <div>
                   <h3 className="font-semibold text-lg">{c.name}</h3>
@@ -158,19 +68,14 @@ function TechPage() {
                   </div>
                 ))}
               </div>
-            </motion.div>
-          ))}
+            </div>;
+          })}
         </div>
 
-        <motion.div
-          initial={{ opacity: 0, y: 20 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
-          className="glass rounded-2xl p-8 md:p-10 mt-8 text-center"
-        >
-          <h2 className="text-2xl font-bold mb-2">Microsoft Partner Accreditations</h2>
+        <div className="animate-fade-in-up glass rounded-2xl p-8 md:p-10 mt-8 text-center">
+          <h2 className="text-2xl font-bold mb-2">{(tech.partners_heading as string) ?? "Microsoft Partner Accreditations"}</h2>
           <p className="text-sm text-muted-foreground mb-6 max-w-xl mx-auto">
-            Our team holds active Microsoft Solutions Partner designations, validated annually through rigorous customer references and competency exams.
+            {(tech.partners_description as string) ?? "Our team holds active Microsoft Solutions Partner designations, validated annually through rigorous customer references and competency exams."}
           </p>
           <div className="flex flex-wrap justify-center gap-3">
             {partners.map((p) => (
@@ -180,7 +85,7 @@ function TechPage() {
               </span>
             ))}
           </div>
-        </motion.div>
+        </div>
       </div>
       <CTA />
     </section>

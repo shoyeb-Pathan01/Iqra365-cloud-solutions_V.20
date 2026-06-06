@@ -6,6 +6,8 @@ import { ThemeProvider } from "@/components/ThemeProvider";
 import { AuthProvider } from "@/components/AuthProvider";
 import { Navbar } from "@/components/site/Navbar";
 import { Footer } from "@/components/site/Footer";
+import { ContentContext, type SiteContent } from "@/lib/content";
+import { getDb } from "@/lib/env";
 
 function NotFoundComponent() {
   return (
@@ -60,12 +62,31 @@ export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()(
       { property: "og:image", content: "https://storage.googleapis.com/gpt-engineer-file-uploads/attachments/og-images/a4f6380b-b470-4c6f-bd8e-49d9e4cd49f3" },
       { name: "twitter:image", content: "https://storage.googleapis.com/gpt-engineer-file-uploads/attachments/og-images/a4f6380b-b470-4c6f-bd8e-49d9e4cd49f3" },
     ],
-    links: [{ rel: "stylesheet", href: appCss }],
+    links: [
+      { rel: "preconnect", href: "https://fonts.gstatic.com", crossOrigin: "anonymous" },
+      { rel: "preconnect", href: "https://fonts.googleapis.com" },
+      { rel: "preload", href: "https://fonts.gstatic.com/s/plusjakartasans/v8/LDIbaomQNQcsA88c7O9yZ4KMCoOg4IA6-91aHEjcWuA_qU79TKtkLA.woff2", as: "font", type: "font/woff2", crossOrigin: "anonymous" },
+      { rel: "stylesheet", href: appCss },
+    ],
   }),
   shellComponent: RootShell,
   component: RootComponent,
   notFoundComponent: NotFoundComponent,
   errorComponent: ErrorComponent,
+  loader: async (): Promise<SiteContent> => {
+    try {
+      const db = getDb();
+      if (!db) return {};
+      const { results } = await db.prepare("SELECT key, value FROM site_content").all<{ key: string; value: string }>();
+      const content: SiteContent = {};
+      for (const row of results) {
+        try { content[row.key] = JSON.parse(row.value); } catch { content[row.key] = row.value; }
+      }
+      return content;
+    } catch {
+      return {};
+    }
+  },
 });
 
 function RootShell({ children }: { children: React.ReactNode }) {
@@ -84,8 +105,10 @@ function RootShell({ children }: { children: React.ReactNode }) {
 
 function RootComponent() {
   const { queryClient } = Route.useRouteContext();
+  const loaderData = Route.useLoaderData();
   return (
     <QueryClientProvider client={queryClient}>
+      <ContentContext.Provider value={loaderData}>
       <ThemeProvider>
         <AuthProvider>
           <Navbar />
@@ -95,6 +118,7 @@ function RootComponent() {
           <Footer />
         </AuthProvider>
       </ThemeProvider>
+      </ContentContext.Provider>
     </QueryClientProvider>
   );
 }

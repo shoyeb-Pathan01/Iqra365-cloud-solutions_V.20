@@ -10,7 +10,9 @@ export const Route = createFileRoute("/api/auth/session")({
           return Response.json({ user: null });
         }
         const user = await getSessionUser(token);
-        return Response.json({ user });
+        return new Response(JSON.stringify({ user }), {
+          headers: { "content-type": "application/json", "cache-control": "no-store" },
+        });
       },
     },
   },

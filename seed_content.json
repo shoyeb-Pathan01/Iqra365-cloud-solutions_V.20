@@ -1,0 +1,348 @@
+{
+  "hero": {
+    "badge": "Microsoft-focused Cloud, Security & AI Consultancy",
+    "headline": ["Secure Cloud.", "Smarter Infrastructure.", "Future-Ready AI."],
+    "subheading": "Iqra365 Cloud Solutions helps organizations modernize IT, strengthen cybersecurity, and accelerate digital transformation with Microsoft Azure, Microsoft 365, and intelligent security solutions.",
+    "cta_primary": "Get Free Consultation",
+    "cta_secondary": "Explore Services",
+    "features": [
+      { "icon": "Cloud", "label": "Azure Cloud", "value": "Enterprise" },
+      { "icon": "Shield", "label": "Security-First", "value": "Zero Trust" },
+      { "icon": "Sparkles", "label": "AI-Ready", "value": "Copilot Era" }
+    ]
+  },
+  "trust_bar": {
+    "label": "Trusted technologies & certifications",
+    "partners": ["Microsoft Partner", "Azure Expert", "Microsoft 365", "Entra ID", "Defender", "Sentinel", "Intune", "Power Platform"]
+  },
+  "stats": [
+    { "value": 28, "suffix": "+", "label": "Projects Delivered" },
+    { "value": 10, "suffix": "+", "label": "Enterprise Clients" },
+    { "value": 5, "suffix": "+", "label": "Microsoft Certifications" },
+    { "value": 2, "suffix": "+", "label": "Years of Expertise" }
+  ],
+  "services_grid": {
+    "heading": "What we do",
+    "title": "Enterprise services, Microsoft-first",
+    "description": "End-to-end consultancy spanning cloud, security, identity, and modern workplace -- designed for scale and accountability.",
+    "services": [
+      {
+        "slug": "microsoft-365-solutions",
+        "icon": "Cloud",
+        "title": "Microsoft 365 Solutions",
+        "desc": "Modern workplace deployment, Teams, SharePoint, Exchange Online, governance & adoption.",
+        "details": "We design, deploy, and govern Microsoft 365 environments that enable secure collaboration and productivity at enterprise scale. From Teams Voice to SharePoint intranets, every solution is aligned to your security and compliance requirements.",
+        "capabilities": [
+          "Full M365 E3/E5 deployment & migration",
+          "Teams Voice, Meetings & Teams Rooms",
+          "SharePoint Online intranet & document management",
+          "Exchange Online migration & hybrid coexistence",
+          "Enterprise governance, retention & compliance policies"
+        ],
+        "useCases": [
+          "Greenfield M365 deployment for growing enterprises",
+          "On-prem Exchange & file server migration to cloud",
+          "Global rollout of Teams Voice replacing legacy PBX",
+          "SharePoint migration from on-prem or competing platforms"
+        ]
+      },
+      {
+        "slug": "azure-cloud-infrastructure",
+        "icon": "Server",
+        "title": "Azure Cloud Infrastructure",
+        "desc": "Architecture, landing zones, IaaS/PaaS, networking, scaling & cost optimization.",
+        "details": "We architect and operate Azure environments that balance performance, security, and cost. Every infrastructure design follows the Microsoft Cloud Adoption Framework and Well-Architected Framework principles.",
+        "capabilities": [
+          "Azure Landing Zone design & deployment (ALZ)",
+          "IaaS, PaaS & hybrid infrastructure architecture",
+          "Virtual networking, ExpressRoute & VPN connectivity",
+          "Cost management & FinOps optimization",
+          "Azure Policy, RBAC & management group governance"
+        ],
+        "useCases": [
+          "Enterprise landing zone for regulated workloads",
+          "Lift-and-shift migration of on-premises data centres",
+          "Multi-region architecture for disaster resilience",
+          "Cloud cost optimization & FinOps implementation"
+        ]
+      },
+      {
+        "slug": "cloud-migration",
+        "icon": "MonitorCog",
+        "title": "Cloud Migration",
+        "desc": "On-prem -> Cloud and Cloud -> Cloud migrations with zero-downtime strategies.",
+        "details": "We execute structured, phased migrations that eliminate downtime and reduce risk. Using Azure Migrate, ASR, and proven wave planning, we move workloads of any complexity with predictable outcomes.",
+        "capabilities": [
+          "Discovery & assessment with Azure Migrate",
+          "Wave-based migration planning & execution",
+          "Database migration (SQL, Oracle, MySQL) via DMS",
+          "Application & legacy workload rehost/replatform",
+          "Post-migration testing, optimization & hypercare"
+        ],
+        "useCases": [
+          "Data centre exit -- full migration to Azure",
+          "VMware to Azure VMware Solution (AVS) migration",
+          "Cloud-to-cloud migration (AWS or GCP to Azure)",
+          "SQL Server modernisation to Azure SQL Managed Instance"
+        ]
+      },
+      {
+        "slug": "cybersecurity-compliance",
+        "icon": "Shield",
+        "title": "Cybersecurity & Compliance",
+        "desc": "Microsoft Defender, Sentinel SIEM/SOAR, compliance frameworks & threat hunting.",
+        "details": "Our security practice is built on Microsoft's unified security stack -- Defender XDR, Sentinel, Purview, and Entra -- delivering end-to-end protection, detection, and response across your entire estate.",
+        "capabilities": [
+          "Microsoft Defender XDR deployment & tuning",
+          "Sentinel SIEM ingestion, analytics & SOAR automation",
+          "Compliance frameworks (ISO 27001, SOC 2, HIPAA, PCI-DSS)",
+          "Microsoft Purview data governance & DLP",
+          "Threat hunting, incident response & tabletop exercises"
+        ],
+        "useCases": [
+          "SOC modernisation with Sentinel & Defender XDR",
+          "Compliance readiness for regulatory audit",
+          "Ransomware resilience & recovery planning",
+          "DLP & data classification for sensitive data protection"
+        ]
+      },
+      {
+        "slug": "identity-access-entra-id",
+        "icon": "KeyRound",
+        "title": "Identity & Access (Entra ID)",
+        "desc": "Zero Trust identity, conditional access, MFA, privileged identity management.",
+        "details": "We implement Zero Trust identity architectures that secure access to every application, device, and resource -- without compromising user productivity. From Entra ID to PIM, we cover the full identity lifecycle.",
+        "capabilities": [
+          "Entra ID (Azure AD) architecture & migration",
+          "Conditional Access policy design & deployment",
+          "MFA, passwordless & FIDO2 authentication",
+          "Privileged Identity Management (PIM) & access reviews",
+          "Entra ID Governance & identity lifecycle automation"
+        ],
+        "useCases": [
+          "Active Directory to Entra ID migration",
+          "Zero Trust identity transformation for regulated firms",
+          "SSO integration across 50+ SaaS applications",
+          "Privileged access management for administrative users"
+        ]
+      },
+      {
+        "slug": "endpoint-security-intune",
+        "icon": "Laptop",
+        "title": "Endpoint Security & Intune",
+        "desc": "MDM, MAM, autopilot, endpoint hardening & compliance policies.",
+        "details": "We manage and secure endpoints at scale with Microsoft Intune, Autopilot, and Windows 365. Our approach ensures consistent configuration, automated provisioning, and proactive threat defence across every device.",
+        "capabilities": [
+          "Intune MDM & MAM policy design & deployment",
+          "Windows Autopilot zero-touch provisioning",
+          "Endpoint hardening (Attack Surface Reduction, ASR)",
+          "Compliance & conditional access for devices",
+          "Windows 365 Cloud PC provisioning & management"
+        ],
+        "useCases": [
+          "Remote workforce device management with Intune",
+          "Zero-touch provisioning for new device rollouts",
+          "BYOD policy with MAM without device enrollment",
+          "Endpoint compliance for regulated industry access"
+        ]
+      },
+      {
+        "slug": "backup-disaster-recovery",
+        "icon": "HardDriveDownload",
+        "title": "Backup & Disaster Recovery",
+        "desc": "Azure Backup, Site Recovery, BCDR planning and tested restore procedures.",
+        "details": "We design business continuity and disaster recovery solutions that meet your RPO and RTO targets. Using Azure Backup, Site Recovery, and automated DR drills, we ensure your workloads are always recoverable.",
+        "capabilities": [
+          "Azure Backup for VMs, SQL, SAP & file shares",
+          "Azure Site Recovery for region-to-region failover",
+          "BCDR strategy design & runbook development",
+          "Automated DR drill scheduling & reporting",
+          "Long-term retention & immutable vault storage"
+        ],
+        "useCases": [
+          "Ransomware-resilient backup architecture",
+          "Secondary region DR for mission-critical workloads",
+          "Tape-to-cloud backup modernisation",
+          "SQL Server & SAP HANA backup with Azure Backup"
+        ]
+      },
+      {
+        "slug": "web-application-development",
+        "icon": "Code2",
+        "title": "Web & Application Development",
+        "desc": "Custom apps, Power Platform automations & modern web -- delivered via vetted partners.",
+        "details": "We build modern web applications, Power Platform solutions, and API integrations that extend your Microsoft ecosystem. From low-code automation to full-stack development, we deliver through a network of vetted engineering partners.",
+        "capabilities": [
+          "Custom web applications (React, .NET, Node.js)",
+          "Power Platform (Power Apps, Automate, Copilot Studio)",
+          "API integration & middleware development",
+          "Azure Functions serverless backends",
+          "CI/CD pipeline setup with Azure DevOps & GitHub"
+        ],
+        "useCases": [
+          "Internal tool automation with Power Apps & Power Automate",
+          "Customer-facing web portal on Azure + React",
+          "Legacy application modernisation to cloud-native",
+          "AI chatbot with Copilot Studio & Azure OpenAI"
+        ]
+      }
+    ]
+  },
+  "why_us": {
+    "heading": "Why Iqra365",
+    "title": "Built for enterprise trust",
+    "items": [
+      { "icon": "Award", "title": "Microsoft-Centric Expertise", "desc": "Deep specialization in Azure, M365, Defender, Sentinel, Entra & Intune." },
+      { "icon": "ShieldCheck", "title": "Security-First Architecture", "desc": "Every design begins with Zero Trust principles and compliance baselines." },
+      { "icon": "HandshakeIcon", "title": "End-to-End Accountability", "desc": "From assessment to operations -- single partner, single point of ownership." },
+      { "icon": "Zap", "title": "Rapid Deployment & Support", "desc": "Proven playbooks deliver measurable outcomes in weeks, not quarters." },
+      { "icon": "TrendingDown", "title": "Cost Optimization Focus", "desc": "FinOps-led design ensures Azure & M365 spend stays predictable." },
+      { "icon": "Users", "title": "Long-term Partnership", "desc": "We grow with you -- strategic advisory beyond the initial project." }
+    ]
+  },
+  "case_studies_home": [
+    { "tag": "Cloud Migration", "slug": "banking-azure-landing-zone", "title": "Banking Group -> Azure Landing Zone", "metric": "30% cost reduction - Zero downtime", "color": "from-[oklch(0.42_0.24_250)] to-[oklch(0.55_0.24_240)]", "icon": "Cloud" },
+    { "tag": "Cybersecurity", "slug": "healthcare-sentinel-siem", "title": "Healthcare SIEM with Microsoft Sentinel", "metric": "4x faster threat detection", "color": "from-[oklch(0.65_0.24_50)] to-[oklch(0.58_0.26_40)]", "icon": "ShieldCheck" },
+    { "tag": "Modern Workplace", "slug": "manufacturing-m365-rollout", "title": "2,000 users onboarded to M365 + Intune", "metric": "6-week rollout - 99% adoption", "color": "from-[oklch(0.42_0.24_160)] to-[oklch(0.62_0.24_145)]", "icon": "Laptop" }
+  ],
+  "case_studies_full": [
+    {
+      "tag": "Cloud Migration", "icon": "Cloud", "slug": "banking-azure-landing-zone", "color": "from-[oklch(0.42_0.24_250)] to-[oklch(0.55_0.24_240)]",
+      "title": "Banking Group migrates to Azure Landing Zone",
+      "client": "Regional banking group -- 3,000+ employees",
+      "challenge": "The bank's on-premises data centre was approaching end-of-life. Hardware refresh costs were prohibitive, and the existing environment lacked disaster recovery capabilities. Regulatory compliance (PCI-DSS, MAS TRM) added further complexity to any migration approach.",
+      "solution": "Designed and deployed a greenfield Azure Landing Zone aligned to the Microsoft Cloud Adoption Framework. Migrated 80+ workloads including core banking applications, SQL Server databases, and file services using Azure Migrate and a phased wave plan. Implemented Azure Site Recovery for DR and Azure Policy for guardrails.",
+      "results": ["30% reduction in total infrastructure cost", "Zero downtime during migration waves", "RTO reduced from 24 hours to 4 hours", "Automated compliance auditing via Azure Policy"],
+      "tech": ["Azure Landing Zone", "Azure Migrate", "Azure Site Recovery", "Azure Policy", "Azure SQL"],
+      "feedback": { "quote": "Iqra365 delivered what others only promised -- a seamless migration with zero business disruption. Their Cloud Adoption Framework methodology kept us on track and audit-ready throughout.", "author": "Founder & Lead Cloud Architect", "company": "Iqra365 Cloud Solutions" }
+    },
+    {
+      "tag": "Cybersecurity", "icon": "ShieldCheck", "slug": "healthcare-sentinel-siem", "color": "from-[oklch(0.65_0.24_50)] to-[oklch(0.58_0.26_40)]",
+      "title": "Healthcare provider deploys Sentinel SIEM",
+      "client": "National healthcare provider -- 8,000+ endpoints",
+      "challenge": "The organisation's legacy SIEM was reaching capacity and couldn't keep pace with modern threats. Security analysts spent most of their time on manual triage. Compliance reporting for HIPAA and local health data regulations required weeks of effort per quarter.",
+      "solution": "Deployed Microsoft Sentinel as a cloud-native SIEM with automated ingestion from Defender XDR, Entra ID, and line-of-business apps. Built SOAR playbooks to automate phishing response, user compromise isolation, and threat hunting queries. Integrated with existing ServiceNow for ticketing.",
+      "results": ["4x faster threat detection (mean time to detect)", "Automated 70% of Level-1 alert triage", "Compliance reporting reduced from 2 weeks to 2 days", "Cost savings of 40% vs legacy SIEM licensing"],
+      "tech": ["Microsoft Sentinel", "Defender XDR", "Entra ID", "Logic Apps", "ServiceNow"],
+      "feedback": { "quote": "Security operations is fundamentally different now. Our team can focus on real threats instead of drowning in alerts. The compliance reporting alone saved us weeks of manual effort every quarter.", "author": "Co-Founder & Head of Security Practice", "company": "Iqra365 Cloud Solutions" }
+    },
+    {
+      "tag": "Modern Workplace", "icon": "Laptop", "slug": "manufacturing-m365-rollout", "color": "from-[oklch(0.42_0.24_160)] to-[oklch(0.62_0.24_145)]",
+      "title": "Manufacturing firm onboards 2,000 users to M365",
+      "client": "Global manufacturing company -- 2,000 employees across 12 sites",
+      "challenge": "The company operated on a mix of on-premises Exchange, file servers, and legacy VPN-based remote access. The CFO mandated a shift to cloud to reduce infrastructure overhead and enable hybrid work. User adoption was a key concern -- past IT projects had met resistance.",
+      "solution": "Deployed Microsoft 365 E5 with Teams Voice, Exchange Online, and OneDrive. Used Intune with Autopilot for zero-touch device provisioning. Ran adoption workshops and created a Champions network across departments. Migrated SharePoint data with Sharegate and email with Exchange Hybrid.",
+      "results": ["Full rollout completed in 6 weeks", "99% user adoption within 30 days", "VPN dependency reduced by 85%", "IT helpdesk tickets down by 40%"],
+      "tech": ["Microsoft 365 E5", "Teams Voice", "Intune", "Autopilot", "Sharegate"],
+      "feedback": { "quote": "Change management was always the hardest part of any IT project. Our adoption rates spoke for themselves -- when users see something that actually makes their work easier, they embrace it.", "author": "Founder & Lead Cloud Architect", "company": "Iqra365 Cloud Solutions" }
+    },
+    {
+      "tag": "Data Platform", "icon": "Database", "slug": "retail-azure-synapse", "color": "from-[oklch(0.42_0.20_280)] to-[oklch(0.55_0.20_270)]",
+      "title": "Retail analytics platform on Azure Synapse",
+      "client": "Omni-channel retailer -- $500M annual revenue",
+      "challenge": "Sales, inventory, and customer data was scattered across multiple silos (on-prem SQL Server, Salesforce, Shopify, ERP). The leadership team needed a unified analytics view but quarterly reporting cycles made decision-making slow.",
+      "solution": "Built a cloud data platform on Azure Synapse Analytics with data ingestion pipelines via Azure Data Factory. Used Power BI Premium for executive dashboards and embedded analytics for store managers. Implemented a medallion architecture (bronze/silver/gold) for data governance.",
+      "results": ["Reporting cycle reduced from quarterly to daily", "Single source of truth across 6 data sources", "Inventory forecasting accuracy improved by 25%", "Power BI adoption across 200+ users"],
+      "tech": ["Azure Synapse", "Data Factory", "Power BI Premium", "Azure Data Lake", "Azure SQL"],
+      "feedback": { "quote": "Data lakes and pipelines can get complex fast. We kept the architecture clean and the business value obvious -- store managers had dashboards they actually used within weeks.", "author": "Co-Founder & Head of Security Practice", "company": "Iqra365 Cloud Solutions" }
+    },
+    {
+      "tag": "Identity & Access", "icon": "Lock", "slug": "financial-zero-trust-iam", "color": "from-[oklch(0.42_0.22_220)] to-[oklch(0.55_0.22_210)]",
+      "title": "Financial services firm adopts Zero Trust IAM",
+      "client": "Financial services firm -- 1,200 employees, regulated globally",
+      "challenge": "The firm relied on legacy Active Directory with no MFA. A ransomware incident exposed critical gaps in identity security. The board required a Zero Trust architecture within 6 months to meet insurance and regulatory mandates.",
+      "solution": "Implemented Entra ID with PIM for just-in-time privileged access. Rolled out MFA and conditional access policies based on risk (location, device compliance, sign-in behaviour). Deployed Entra ID Governance for access reviews and automated identity lifecycle management. Integrated with 50+ SaaS apps via SSO.",
+      "results": ["Zero Trust model deployed in 5 months", "MFA coverage across all 1,200 users and 50+ apps", "Privileged accounts reduced by 60%", "Passed regulatory audit with zero findings"],
+      "tech": ["Entra ID PIM", "Conditional Access", "MFA", "Entra ID Governance", "SSO"],
+      "feedback": { "quote": "The ransomware incident was a wake-up call. We didn't just patch the gaps -- we rebuilt the entire identity architecture. Passing the audit with zero findings was the validation we needed.", "author": "Founder & Lead Cloud Architect", "company": "Iqra365 Cloud Solutions" }
+    },
+    {
+      "tag": "Backup & DR", "icon": "Building2", "slug": "logistics-bcdr-modernization", "color": "from-[oklch(0.42_0.20_200)] to-[oklch(0.55_0.20_190)]",
+      "title": "Logistics company modernises BCDR strategy",
+      "client": "Logistics & supply chain company -- 1,500 employees, 24/7 operations",
+      "challenge": "Backups ran on tape-based systems with no off-site copies. A successful restore had never been tested. Leadership was concerned about ransomware resilience after industry-wide attacks. Recovery time objectives (RTOs) were measured in days, not hours.",
+      "solution": "Deployed Azure Backup for VMs, SQL Server, and file shares with off-site vault storage. Configured Azure Site Recovery for failover to a secondary Azure region. Built a runbook for quarterly DR drills with automated reporting. Deployed MARS agent for on-premises file and folder protection.",
+      "results": ["RTO reduced from 48 hours to 4 hours", "Tape infrastructure decommissioned", "Quarterly DR drills now automated with pass/fail reporting", "40% reduction in backup management overhead"],
+      "tech": ["Azure Backup", "Azure Site Recovery", "MARS Agent", "Recovery Vault", "Azure Monitor"],
+      "feedback": { "quote": "Tape-based backups with untested restores aren't a backup strategy -- they're a false sense of security. Automating DR drills and getting measurable RTOs gave the leadership team real confidence.", "author": "Co-Founder & Head of Security Practice", "company": "Iqra365 Cloud Solutions" }
+    }
+  ],
+  "testimonials": [
+    { "quote": "We built Iqra365 to close the gap between Microsoft's technology promise and enterprise reality. Every engagement is measured by whether our clients actually operate differently after we leave.", "author": "Founder & Lead Cloud Architect", "company": "Iqra365 Cloud Solutions" },
+    { "quote": "Security isn't a product you buy -- it's an architecture you commit to. Our mission is to make enterprise-grade protection achievable for every organisation we work with, regardless of their starting point.", "author": "Co-Founder & Head of Security Practice", "company": "Iqra365 Cloud Solutions" },
+    { "quote": "The best cloud strategy is the one that actually gets implemented. We focus on outcomes over architectures -- deployable, measurable, and accountable every step of the way.", "author": "Founder & Lead Cloud Architect", "company": "Iqra365 Cloud Solutions" }
+  ],
+  "technologies": {
+    "page_title": "Our tech stack",
+    "page_description": "A modern, Microsoft-centric stack -- battle-tested across regulated industries. Every technology we deploy is covered by internal expertise and, where applicable, Microsoft partner accreditations.",
+    "categories": [
+      { "icon": "Cloud", "name": "Cloud Platform", "desc": "Enterprise-grade Azure infrastructure, DevOps pipelines, and hybrid cloud management.", "items": [
+        { "name": "Microsoft Azure", "desc": "Compute, storage, networking & landing zones" },
+        { "name": "Azure DevOps", "desc": "CI/CD pipelines, repos & agile boards" },
+        { "name": "Azure Arc", "desc": "Multi-cloud & hybrid management plane" },
+        { "name": "Azure Monitor", "desc": "Full-stack observability & alerting" },
+        { "name": "Azure Functions", "desc": "Serverless compute for event-driven apps" },
+        { "name": "AKS", "desc": "Managed Kubernetes container orchestration" },
+        { "name": "Azure API Management", "desc": "API gateway, publishing & lifecycle" }
+      ]},
+      { "icon": "Users", "name": "Productivity & Modern Workplace", "desc": "Collaboration, communication, and document management across your organization.", "items": [
+        { "name": "Microsoft 365", "desc": "Enterprise productivity & collaboration suite" },
+        { "name": "Microsoft Teams", "desc": "Chat, meetings, VoIP & channel-based work" },
+        { "name": "SharePoint Online", "desc": "Intranet, document management & portals" },
+        { "name": "Exchange Online", "desc": "Cloud email, calendaring & compliance" },
+        { "name": "OneDrive for Business", "desc": "Personal cloud storage & file sync" },
+        { "name": "Viva Engage", "desc": "Employee comms & community platform" },
+        { "name": "Power BI", "desc": "Interactive dashboards & business analytics" }
+      ]},
+      { "icon": "Shield", "name": "Security & Identity", "desc": "End-to-end protection with Microsoft's unified security stack and Zero Trust architecture.", "items": [
+        { "name": "Microsoft Defender XDR", "desc": "Extended detection & response across domains" },
+        { "name": "Microsoft Sentinel", "desc": "Cloud-native SIEM + SOAR (built on Azure)" },
+        { "name": "Entra ID (Azure AD)", "desc": "Identity, SSO, MFA & conditional access" },
+        { "name": "Microsoft Purview", "desc": "Data governance, risk & compliance portal" },
+        { "name": "Microsoft Intune", "desc": "MDM, MAM & endpoint configuration" },
+        { "name": "Privileged Identity Mgmt", "desc": "JIT privileged access & access reviews" },
+        { "name": "Defender Cloud Apps", "desc": "CASB for shadow IT & app governance" }
+      ]},
+      { "icon": "Database", "name": "Data & AI", "desc": "Intelligent data platforms, analytics, and AI services from Microsoft's portfolio.", "items": [
+        { "name": "Azure OpenAI Service", "desc": "GPT-4, GPT-4o models with enterprise SLAs" },
+        { "name": "Microsoft Copilot", "desc": "AI assistant across M365, Dynamics & Fabric" },
+        { "name": "Azure AI Foundry", "desc": "End-to-end AI development & deployment" },
+        { "name": "Microsoft Fabric", "desc": "Unified analytics SaaS (Lakehouse, BI, AI)" },
+        { "name": "Azure Synapse Analytics", "desc": "Big data & data warehousing engine" },
+        { "name": "Azure SQL / Cosmos DB", "desc": "Relational & NoSQL managed databases" }
+      ]},
+      { "icon": "Zap", "name": "Automation & DevOps", "desc": "Infrastructure as Code, low-code automation, and intelligent orchestration.", "items": [
+        { "name": "Power Platform", "desc": "Low-code apps, automations & chatbots" },
+        { "name": "Power Automate", "desc": "Workflow automation across 400+ services" },
+        { "name": "Logic Apps", "desc": "Enterprise integration & API orchestration" },
+        { "name": "Azure Bicep", "desc": "Declarative ARM infrastructure as code" },
+        { "name": "Terraform", "desc": "Multi-cloud IaC (AWS, Azure, GCP)" },
+        { "name": "GitHub Actions", "desc": "CI/CD automation integrated with Azure" },
+        { "name": "Docker / ACR", "desc": "Containerisation & Azure Container Registry" }
+      ]},
+      { "icon": "Code2", "name": "Development & Engineering", "desc": "Modern frameworks, languages, and tools we use to build and ship reliable solutions.", "items": [
+        { "name": "React / TypeScript", "desc": "Component-driven UIs with type safety" },
+        { "name": ".NET / C#", "desc": "Enterprise back-end & API development" },
+        { "name": "Node.js / Python", "desc": "Server-side scripting & automation" },
+        { "name": "GitHub / GitLab", "desc": "Version control, pull requests & reviews" },
+        { "name": "ESLint / Prettier", "desc": "Automated code quality & formatting" },
+        { "name": "Playwright / Vitest", "desc": "E2E testing & unit testing frameworks" },
+        { "name": "Bicep / ARM", "desc": "Infrastructure as Code for Azure" }
+      ]}
+    ],
+    "partners": [
+      "Microsoft Solutions Partner -- Azure Infrastructure",
+      "Microsoft Solutions Partner -- Security",
+      "Microsoft Solutions Partner -- Modern Work",
+      "Microsoft Solutions Partner -- Data & AI (Azure)",
+      "Microsoft Solutions Partner -- Digital & App Innovation (Azure)"
+    ],
+    "partners_heading": "Microsoft Partner Accreditations",
+    "partners_description": "Our team holds active Microsoft Solutions Partner designations, validated annually through rigorous customer references and competency exams."
+  },
+  "milestones": [
+    { "year": "2024", "title": "Founded", "desc": "Founded with a mission to deliver enterprise-grade Microsoft cloud, security, and AI solutions with accountability and measurable outcomes." },
+    { "year": "2025", "title": "First Enterprise Clients", "desc": "Partnered with regulated enterprises across finance, healthcare, and manufacturing for cloud migrations and security transformations." },
+    { "year": "2026", "title": "AI-Ready Practice", "desc": "Launched dedicated AI practice helping clients adopt Copilot, Azure OpenAI, and intelligent automation." }
+  ]
+}

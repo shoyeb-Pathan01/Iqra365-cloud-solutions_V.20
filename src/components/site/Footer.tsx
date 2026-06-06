@@ -20,6 +20,8 @@ const techLinks = [
   { to: "/technologies", label: "DevOps & Development" },
 ];
 
+const currentYear = new Date().getFullYear();
+
 export function Footer() {
   return (
     <footer className="mt-24">
@@ -98,7 +100,7 @@ export function Footer() {
       <div className="border-t border-border bg-background">
         <div className="container mx-auto px-4 py-6 flex flex-col md:flex-row justify-between items-center gap-3">
           <p className="text-xs text-foreground/75">
-            &copy; {new Date().getFullYear()} Iqra365 Cloud Solutions. All rights reserved.
+            &copy; {currentYear} Iqra365 Cloud Solutions. All rights reserved.
           </p>
           <div className="flex items-center gap-4 text-xs text-foreground/75">
             <span className="hidden sm:inline text-border">|</span>

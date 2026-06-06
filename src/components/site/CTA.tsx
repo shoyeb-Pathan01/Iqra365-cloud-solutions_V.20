@@ -1,4 +1,3 @@
-import { motion } from "framer-motion";
 import { Button } from "@/components/ui/button";
 import { Link } from "@tanstack/react-router";
 import { ArrowRight } from "lucide-react";
@@ -7,12 +6,7 @@ export function CTA() {
   return (
     <section className="py-24">
       <div className="container mx-auto px-4">
-        <motion.div
-          initial={{ opacity: 0, y: 30 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
-          className="relative rounded-3xl overflow-hidden p-6 md:p-16 text-center shadow-elegant"
-        >
+        <div className="animate-fade-in-up relative rounded-3xl overflow-hidden p-6 md:p-16 text-center shadow-elegant">
           <div className="absolute inset-0 bg-gradient-azure opacity-90" />
           <div className="absolute inset-0 grid-bg opacity-30" />
           <div className="relative">
@@ -29,7 +23,7 @@ export function CTA() {
               </Link>
             </Button>
           </div>
-        </motion.div>
+        </div>
       </div>
     </section>
   );

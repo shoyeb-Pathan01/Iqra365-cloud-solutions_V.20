@@ -1,7 +1,6 @@
 import { createFileRoute } from "@tanstack/react-router";
 import { ServicesGrid } from "@/components/site/ServicesGrid";
 import { CTA } from "@/components/site/CTA";
-import { motion } from "framer-motion";
 
 export const Route = createFileRoute("/services")({
   head: () => ({
@@ -22,7 +21,7 @@ function ServicesPage() {
     <>
       <section className="pt-36 pb-10">
         <div className="container mx-auto px-4 max-w-4xl text-center">
-          <motion.div initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }}>
+          <div className="animate-fade-in-up">
             <span className="text-xs uppercase tracking-[0.2em] text-primary font-semibold">Services</span>
             <h1 className="text-4xl md:text-6xl font-bold mt-3 mb-6">
               Full-stack <span className="text-gradient-brand">Microsoft consultancy</span>
@@ -30,7 +29,7 @@ function ServicesPage() {
             <p className="text-lg text-muted-foreground">
               Strategy, architecture, deployment and managed operations — under one accountable partner.
             </p>
-          </motion.div>
+          </div>
         </div>
       </section>
       <ServicesGrid heading={false} />
