@@ -4,17 +4,17 @@ import { TrustBar } from "@/components/site/TrustBar";
 import { Stats } from "@/components/site/Stats";
 import { ServicesGrid } from "@/components/site/ServicesGrid";
 import { WhyUs } from "@/components/site/WhyUs";
-import { CaseStudies } from "@/components/site/CaseStudies";
-import { Testimonials } from "@/components/site/Testimonials";
+import { ProcessSection } from "@/components/site/CaseStudies";
+import { FoundersSection } from "@/components/site/Testimonials";
 import { CTA } from "@/components/site/CTA";
 
 export const Route = createFileRoute("/")({
   head: () => ({
     meta: [
-      { title: "Iqra365 Cloud Solutions — Microsoft Cloud, Security & AI" },
-      { name: "description", content: "Modernize IT, strengthen cybersecurity, and accelerate digital transformation with Microsoft Azure, M365, Defender, Sentinel, Entra & Intune." },
+      { title: "Iqra365 Cloud Solutions — Microsoft Security & Cloud Consultancy" },
+      { name: "description", content: "Specialist Microsoft Security & Cloud consultancy for Indian enterprises. Entra ID, Intune, Defender, Purview, Azure Sentinel, M365 Operations. Founded by certified Microsoft 365 practitioners." },
       { property: "og:title", content: "Iqra365 Cloud Solutions" },
-      { property: "og:description", content: "Secure Cloud. Smarter Infrastructure. Future-Ready AI Solutions." },
+      { property: "og:description", content: "Specialist Microsoft Security & Cloud consultancy for Indian mid-market companies." },
       { property: "og:url", content: "/" },
     ],
     links: [{ rel: "canonical", href: "/" }],
@@ -30,8 +30,8 @@ function Index() {
       <Stats />
       <ServicesGrid />
       <WhyUs />
-      <CaseStudies />
-      <Testimonials />
+      <ProcessSection />
+      <FoundersSection />
       <CTA />
     </>
   );

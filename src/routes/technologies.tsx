@@ -1,18 +1,88 @@
 import { createFileRoute } from "@tanstack/react-router";
 import {
-  Cloud, Users, Shield, Database, Zap, Code2,
-  CheckCircle2, ExternalLink, type LucideIcon,
+  Cloud, Users, Shield, ScanEye, Bug, Settings,
+  CheckCircle2, type LucideIcon,
 } from "lucide-react";
 import { CTA } from "@/components/site/CTA";
-import { useContent } from "@/lib/content";
+
+const techIconMap: Record<string, LucideIcon> = { Cloud, Users, Shield, ScanEye, Bug, Settings };
+
+const categories = [
+  {
+    icon: "Shield",
+    name: "Entra ID",
+    desc: "Identity & Access Management",
+    items: [
+      { name: "Conditional Access", desc: "Policy-driven access controls" },
+      { name: "Privileged Identity Management", desc: "Just-in-time privileged access" },
+      { name: "Identity Governance", desc: "Access reviews and entitlements" },
+      { name: "Hybrid Identity", desc: "Sync and federation" },
+    ],
+  },
+  {
+    icon: "Settings",
+    name: "Microsoft Intune",
+    desc: "Endpoint Management",
+    items: [
+      { name: "Mobile Device Management", desc: "Corporate and BYOD device enrolment" },
+      { name: "Mobile Application Management", desc: "App protection policies" },
+      { name: "Windows Autopilot", desc: "Zero-touch device provisioning" },
+      { name: "Compliance Policies", desc: "Device health and configuration baselines" },
+    ],
+  },
+  {
+    icon: "Bug",
+    name: "Microsoft Defender",
+    desc: "Security Suite",
+    items: [
+      { name: "Defender for Endpoint", desc: "EDR and endpoint protection" },
+      { name: "Defender for Office 365", desc: "Email and collaboration security" },
+      { name: "Defender for Identity", desc: "On-prem identity threat detection" },
+      { name: "Defender for Cloud Apps", desc: "SaaS shadow IT and threat protection" },
+    ],
+  },
+  {
+    icon: "ScanEye",
+    name: "Microsoft Purview",
+    desc: "Data Security & Compliance",
+    items: [
+      { name: "Data Loss Prevention", desc: "Content and context-aware DLP" },
+      { name: "Information Protection", desc: "Sensitivity labels and encryption" },
+      { name: "Insider Risk Management", desc: "User activity analytics" },
+      { name: "Audit & eDiscovery", desc: "Compliance search and legal hold" },
+    ],
+  },
+  {
+    icon: "Cloud",
+    name: "Azure & Microsoft Sentinel",
+    desc: "Cloud Security & SIEM",
+    items: [
+      { name: "Microsoft Sentinel", desc: "Cloud-native SIEM and SOAR" },
+      { name: "Defender for Cloud", desc: "Cloud security posture management" },
+      { name: "Log Analytics", desc: "Centralised logging and monitoring" },
+      { name: "Azure Policy", desc: "Resource governance and compliance" },
+    ],
+  },
+  {
+    icon: "Users",
+    name: "Microsoft 365 Operations",
+    desc: "Admin & Lifecycle Support",
+    items: [
+      { name: "Tenant Administration", desc: "User, group, and license management" },
+      { name: "Exchange Online", desc: "Mail flow, hygiene, and configuration" },
+      { name: "SharePoint & OneDrive", desc: "Site governance and permissions" },
+      { name: "Lifecycle Management", desc: "Onboarding, offboarding, and retention" },
+    ],
+  },
+];
 
 export const Route = createFileRoute("/technologies")({
   head: () => ({
     meta: [
-      { title: "Technologies & Partners — Iqra365 Cloud Solutions" },
-      { name: "description", content: "Microsoft Azure, M365, Entra ID, Defender, Sentinel, Intune, Power Platform and more — our full technology stack." },
-      { property: "og:title", content: "Technologies & Partners — Iqra365 Cloud Solutions" },
-      { property: "og:description", content: "Our Microsoft-centric technology stack & partner ecosystem with detailed capabilities." },
+      { title: "Technologies — Iqra365 Cloud Solutions" },
+      { name: "description", content: "Microsoft Entra ID, Intune, Defender, Purview, Azure Sentinel, and M365 — our full Microsoft technology stack." },
+      { property: "og:title", content: "Technologies — Iqra365 Cloud Solutions" },
+      { property: "og:description", content: "Our Microsoft-centric technology stack." },
       { property: "og:url", content: "/technologies" },
     ],
     links: [{ rel: "canonical", href: "/technologies" }],
@@ -20,24 +90,17 @@ export const Route = createFileRoute("/technologies")({
   component: TechPage,
 });
 
-const techIconMap: Record<string, LucideIcon> = { Cloud, Users, Shield, Database, Zap, Code2 };
-
 function TechPage() {
-  const content = useContent();
-  const tech = (content.technologies as Record<string, unknown>) ?? {};
-  const categories = (tech.categories as Array<{ icon: string; name: string; desc: string; items: Array<{ name: string; desc: string }> }>) ?? [];
-  const partners = (tech.partners as string[]) ?? [];
-
   return (
     <section className="pt-36 pb-24">
       <div className="container mx-auto px-4 max-w-6xl">
         <div className="animate-fade-in-up text-center max-w-3xl mx-auto mb-16">
           <span className="text-xs uppercase tracking-[0.2em] text-primary font-semibold">Technologies</span>
           <h1 className="text-4xl md:text-6xl font-bold mt-3 mb-4">
-            {(tech.page_title as string) ?? "Our tech stack"}
+            Our Microsoft stack
           </h1>
           <p className="text-muted-foreground text-base md:text-lg">
-            {(tech.page_description as string) ?? "A modern, Microsoft-centric stack — battle-tested across regulated industries."}
+            Six Microsoft technology areas we work with daily. Every tool, every configuration — deployed from real production experience, not certification alone.
           </p>
         </div>
 
@@ -70,21 +133,6 @@ function TechPage() {
               </div>
             </div>;
           })}
-        </div>
-
-        <div className="animate-fade-in-up glass rounded-2xl p-8 md:p-10 mt-8 text-center">
-          <h2 className="text-2xl font-bold mb-2">{(tech.partners_heading as string) ?? "Microsoft Partner Accreditations"}</h2>
-          <p className="text-sm text-muted-foreground mb-6 max-w-xl mx-auto">
-            {(tech.partners_description as string) ?? "Our team holds active Microsoft Solutions Partner designations, validated annually through rigorous customer references and competency exams."}
-          </p>
-          <div className="flex flex-wrap justify-center gap-3">
-            {partners.map((p) => (
-              <span key={p} className="inline-flex items-center gap-1.5 text-xs px-3 py-2 rounded-full bg-secondary border border-border">
-                <ExternalLink className="h-3 w-3 text-primary" />
-                {p}
-              </span>
-            ))}
-          </div>
         </div>
       </div>
       <CTA />

@@ -7,15 +7,24 @@ import { Label } from "@/components/ui/label";
 import { Textarea } from "@/components/ui/textarea";
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@/components/ui/select";
 import { CheckCircle2, Mail, MapPin, Phone, Loader2 } from "lucide-react";
-import { useContent } from "@/lib/content";
+
+const serviceOptions = [
+  "Entra ID (Identity & Access)",
+  "Intune (Endpoint Management)",
+  "Microsoft Defender (Security)",
+  "Microsoft Purview (DLP & Compliance)",
+  "Azure & Sentinel (Cloud Security / SIEM)",
+  "M365 Operations (Admin & Support)",
+  "Not sure — help me decide",
+];
 
 export const Route = createFileRoute("/contact")({
   head: () => ({
     meta: [
       { title: "Contact — Iqra365 Cloud Solutions" },
-      { name: "description", content: "Book a free 30-minute consultation. We'll assess your cloud & security posture and outline a clear roadmap." },
+      { name: "description", content: "Book a free 30-minute consultation. We'll assess your Microsoft tenant's security posture and outline a clear roadmap." },
       { property: "og:title", content: "Contact Iqra365 Cloud Solutions" },
-      { property: "og:description", content: "Get a free consultation from our Microsoft cloud & security team." },
+      { property: "og:description", content: "Free 30-minute Microsoft security consultation." },
       { property: "og:url", content: "/contact" },
     ],
     links: [{ rel: "canonical", href: "/contact" }],
@@ -33,9 +42,6 @@ export const Route = createFileRoute("/contact")({
 });
 
 function ContactPage() {
-  const content = useContent();
-  const sg = (content.services_grid as Record<string, unknown>) ?? {};
-  const svcOptions = (sg.services as Array<{ icon: string; title: string; desc: string }>) ?? [];
   const [sent, setSent] = useState(false);
   const [submitting, setSubmitting] = useState(false);
   const [form, setForm] = useState({ name: "", email: "", phone: "", company: "", service: "", message: "" });
@@ -55,7 +61,7 @@ function ContactPage() {
     if (!form.name.trim()) e.name = "Required";
     if (!/^\S+@\S+\.\S+$/.test(form.email)) e.email = "Valid email required";
     if (!form.company.trim()) e.company = "Required";
-    if (!form.message.trim() || form.message.length < 10) e.message = "Please add a few details";
+    if (!form.message.trim() || form.message.length < 10) e.message = "Please provide a few details about your needs";
     setErrors(e);
     return Object.keys(e).length === 0;
   }
@@ -79,7 +85,7 @@ function ContactPage() {
         localStorage.setItem("iqra365_consultations", JSON.stringify(consultations));
         setSent(true);
       } catch {
-        setErrors({ ...errors, _form: "Something went wrong. Please try again or email us directly." });
+        setErrors({ ...errors, _form: "Something went wrong. Please try again or email us directly at Info@iqra365cloudsolutions.com" });
       }
     } finally {
       setSubmitting(false);
@@ -93,17 +99,17 @@ function ContactPage() {
           <div className="animate-fade-in lg:col-span-2">
             <span className="text-xs uppercase tracking-[0.2em] text-primary font-semibold">Contact</span>
             <h1 className="text-4xl md:text-5xl font-bold mt-3 mb-6">
-              Let's build your <span className="text-gradient-brand">secure cloud</span>
+              Free 30-minute <span className="text-gradient-brand">security consultation</span>
             </h1>
             <p className="text-muted-foreground mb-8">
-              Tell us about your project or challenge. We respond within one business day.
+              No sales pitch. We'll review your Microsoft tenant, identify security gaps, and give you a clear action plan.
             </p>
             <div className="space-y-4">
               <div className="flex items-start gap-3 glass rounded-xl p-4">
                 <Mail className="h-5 w-5 text-primary mt-0.5" />
                 <div>
                   <div className="font-medium text-sm">Email</div>
-                  <div className="text-sm text-muted-foreground">hello@iqra365.com</div>
+                  <div className="text-sm text-muted-foreground">Info@iqra365cloudsolutions.com</div>
                 </div>
               </div>
               <div className="flex items-start gap-3 glass rounded-xl p-4">
@@ -116,10 +122,16 @@ function ContactPage() {
               <div className="flex items-start gap-3 glass rounded-xl p-4">
                 <MapPin className="h-5 w-5 text-primary mt-0.5" />
                 <div>
-                  <div className="font-medium text-sm">Location</div>
-                  <div className="text-sm text-muted-foreground">Global · Remote-first delivery</div>
+                  <div className="font-medium text-sm">Service areas</div>
+                  <div className="text-sm text-muted-foreground">India (primary) · UAE · Saudi Arabia · Qatar</div>
                 </div>
               </div>
+            </div>
+            <div className="mt-6 p-4 glass rounded-xl">
+              <p className="text-sm text-muted-foreground">
+                <span className="font-medium text-foreground">Arabic support available:</span> Our co-founder Musheer Hashmi is fluent in Arabic. Gulf clients can engage in Arabic for requirements, delivery, and ongoing support.
+              </p>
+              <p className="text-xs text-muted-foreground mt-2" dir="rtl">الدعم متاح باللغة العربية للعملاء في الخليج</p>
             </div>
           </div>
 
@@ -129,7 +141,7 @@ function ContactPage() {
                 <div className="text-center py-16">
                   <CheckCircle2 className="h-16 w-16 mx-auto text-green-brand mb-4" />
                   <h3 className="text-2xl font-bold mb-2">Thanks, {form.name.split(" ")[0]}!</h3>
-                  <p className="text-muted-foreground">We've received your enquiry and will reply within one business day.</p>
+                  <p className="text-muted-foreground">We've received your enquiry and will reply within one business day to schedule your free 30-minute consultation.</p>
                 </div>
               ) : (
                 <form onSubmit={onSubmit} className="space-y-5">
@@ -157,22 +169,22 @@ function ContactPage() {
                     </div>
                   </div>
                   <div>
-                    <Label>Service interested</Label>
+                    <Label>Service interested in</Label>
                     <Select value={form.service} onValueChange={(v) => setForm({ ...form, service: v })}>
-                      <SelectTrigger className="mt-1.5"><SelectValue placeholder="Choose a service" /></SelectTrigger>
+                      <SelectTrigger className="mt-1.5"><SelectValue placeholder="Select a service" /></SelectTrigger>
                       <SelectContent>
-                        {svcOptions.map((s) => <SelectItem key={s.title} value={s.title}>{s.title}</SelectItem>)}
+                        {serviceOptions.map((s) => <SelectItem key={s} value={s}>{s}</SelectItem>)}
                       </SelectContent>
                     </Select>
                   </div>
                   <div>
-                    <Label htmlFor="message">Message *</Label>
-                    <Textarea id="message" rows={5} value={form.message} onChange={setField("message")} className="mt-1.5" />
+                    <Label htmlFor="message">Tell us about your needs *</Label>
+                    <Textarea id="message" rows={5} value={form.message} onChange={setField("message")} className="mt-1.5" placeholder="What's your current Microsoft environment like? What challenges are you facing? Any specific compliance requirements (DPDP Act, ISO 27001, RBI)? " />
                     {errors.message && <p className="text-xs text-destructive mt-1">{errors.message}</p>}
                   </div>
                   {errors._form && <p className="text-xs text-destructive text-center">{errors._form}</p>}
                   <Button type="submit" size="lg" disabled={submitting} className="w-full bg-gradient-orange text-white border-0 shadow-glow-orange">
-                    {submitting ? <><Loader2 className="h-4 w-4 animate-spin" /> Sending...</> : "Send Enquiry"}
+                    {submitting ? <><Loader2 className="h-4 w-4 animate-spin" /> Sending...</> : "Book Free Consultation"}
                   </Button>
                 </form>
               )}

@@ -1,26 +1,57 @@
-import { Award, Zap, ShieldCheck, HandshakeIcon, TrendingDown, Users, type LucideIcon } from "lucide-react";
-import { useContent } from "@/lib/content";
+import { ShieldCheck, Users, Clock, Globe, TrendingDown, HandshakeIcon, type LucideIcon } from "lucide-react";
 
-const whyIconMap: Record<string, LucideIcon> = { Award, ShieldCheck, HandshakeIcon, Zap, TrendingDown, Users };
+const items: Array<{ icon: keyof typeof whyIconMap; title: string; desc: string }> = [
+  {
+    icon: "ShieldCheck",
+    title: "Microsoft-Only Specialisation",
+    desc: "We don't spread across technology stacks. Every consultant on every engagement works exclusively in the Microsoft security and cloud ecosystem every day.",
+  },
+  {
+    icon: "Users",
+    title: "Practitioners, Not Theorists",
+    desc: "Both founders are certified M365 practitioners working in production environments daily. We design what we've deployed ourselves.",
+  },
+  {
+    icon: "Clock",
+    title: "Right-Timing for India Inc.",
+    desc: "DPDP Act compliance deadlines, RBI guidelines, and ISO 27001 audit pressure are creating urgent demand. This is exactly what we're built for.",
+  },
+  {
+    icon: "Globe",
+    title: "Arabic & Gulf Capability",
+    desc: "Co-founder Musheer Hashmi is an Arabic speaker, enabling fluent delivery for clients across UAE, Saudi Arabia, and Qatar.",
+  },
+  {
+    icon: "TrendingDown",
+    title: "Cost-Effective for Mid-Market",
+    desc: "We deliver specialist Microsoft expertise at rates that make sense for Indian companies with 50–500 users. No big-firm overhead.",
+  },
+  {
+    icon: "HandshakeIcon",
+    title: "Project + Retainer Model",
+    desc: "Every engagement starts with a defined project scope. Clients who need ongoing support move to a retainer — no lock-in, complete transparency.",
+  },
+];
+
+const whyIconMap: Record<string, LucideIcon> = { ShieldCheck, Users, Clock, Globe, TrendingDown, HandshakeIcon };
 
 export function WhyUs() {
-  const content = useContent();
-  const wu = (content.why_us as Record<string, unknown>) ?? {};
-  const items = (wu.items as Array<{ icon: string; title: string; desc: string }>) ?? [];
-
   return (
     <section className="py-24 relative">
       <div className="container mx-auto px-4">
         <div className="animate-fade-in-up text-center max-w-2xl mx-auto mb-16">
-          <span className="text-xs uppercase tracking-[0.2em] text-accent font-semibold">{(wu.heading as string) ?? "Why Iqra365"}</span>
+          <span className="text-xs uppercase tracking-[0.2em] text-accent font-semibold">Why Iqra365</span>
           <h2 className="text-3xl md:text-5xl font-bold mt-3 mb-4">
-            {(wu.title as string) ?? "Built for enterprise trust"}
+            Built for Indian enterprises
           </h2>
+          <p className="text-muted-foreground">
+            Six reasons why mid-market companies choose a specialist Microsoft consultancy over generic IT providers.
+          </p>
         </div>
 
         <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-5">
           {items.map((it, i) => {
-            const Icon = whyIconMap[it.icon] ?? Award;
+            const Icon = whyIconMap[it.icon] ?? ShieldCheck;
             return (
               <div
                 key={it.title}
