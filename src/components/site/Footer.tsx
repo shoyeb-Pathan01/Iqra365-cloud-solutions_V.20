@@ -9,6 +9,12 @@ const serviceLinks = [
   { to: "/services/$slug", params: { slug: "purview" }, label: "Microsoft Purview (DLP)" },
   { to: "/services/$slug", params: { slug: "azure-sentinel" }, label: "Azure & Sentinel" },
   { to: "/services/$slug", params: { slug: "m365-operations" }, label: "M365 Operations" },
+  { to: "/services/$slug", params: { slug: "ai-integration" }, label: "AI Integration & Automation" },
+  { to: "/services/$slug", params: { slug: "ai-sso" }, label: "AI + SSO Integration" },
+  { to: "/services/$slug", params: { slug: "ai-productivity" }, label: "AI Productivity Solutions" },
+  { to: "/services/$slug", params: { slug: "sharepoint-admin" }, label: "SharePoint Administration" },
+  { to: "/services/$slug", params: { slug: "managed-it" }, label: "Managed IT Services" },
+  { to: "/services/$slug", params: { slug: "web-development" }, label: "Web Development" },
 ];
 
 const currentYear = new Date().getFullYear();

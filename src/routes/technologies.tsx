@@ -1,11 +1,12 @@
 import { createFileRoute } from "@tanstack/react-router";
 import {
   Cloud, Users, Shield, ScanEye, Bug, Settings,
+  Bot, KeyRound, Sparkles, FolderKanban, Headset, Code2,
   CheckCircle2, type LucideIcon,
 } from "lucide-react";
 import { CTA } from "@/components/site/CTA";
 
-const techIconMap: Record<string, LucideIcon> = { Cloud, Users, Shield, ScanEye, Bug, Settings };
+const techIconMap: Record<string, LucideIcon> = { Cloud, Users, Shield, ScanEye, Bug, Settings, Bot, KeyRound, Sparkles, FolderKanban, Headset, Code2 };
 
 const categories = [
   {
@@ -48,6 +49,9 @@ const categories = [
     items: [
       { name: "Data Loss Prevention", desc: "Content and context-aware DLP" },
       { name: "Information Protection", desc: "Sensitivity labels and encryption" },
+      { name: "Data Governance", desc: "Data catalog, classification, and governance" },
+      { name: "Compliance Management", desc: "Compliance Manager and regulatory assessments" },
+      { name: "Data Lifecycle & Records", desc: "Retention policies and records management" },
       { name: "Insider Risk Management", desc: "User activity analytics" },
       { name: "Audit & eDiscovery", desc: "Compliance search and legal hold" },
     ],
@@ -70,8 +74,75 @@ const categories = [
     items: [
       { name: "Tenant Administration", desc: "User, group, and license management" },
       { name: "Exchange Online", desc: "Mail flow, hygiene, and configuration" },
-      { name: "SharePoint & OneDrive", desc: "Site governance and permissions" },
       { name: "Lifecycle Management", desc: "Onboarding, offboarding, and retention" },
+    ],
+  },
+  {
+    icon: "FolderKanban",
+    name: "SharePoint Administration",
+    desc: "Collaboration & Document Management",
+    items: [
+      { name: "Site Administration", desc: "Tenant and site collection management" },
+      { name: "Site Provisioning & Governance", desc: "Site creation workflows and lifecycle governance" },
+      { name: "Permission Management", desc: "Site and item-level access control" },
+      { name: "Document Management", desc: "Libraries, metadata, and versioning" },
+      { name: "Collaboration", desc: "Team sites, communication sites, and admin support" },
+    ],
+  },
+  {
+    icon: "Bot",
+    name: "AI Integration & Automation",
+    desc: "AI Adoption & Workflow Automation",
+    items: [
+      { name: "Microsoft 365 & Azure AI", desc: "Microsoft AI service integrations" },
+      { name: "Enterprise AI Adoption", desc: "Rollout planning and workflow automation" },
+      { name: "Secure AI Implementation", desc: "Identity and access controls for AI workloads" },
+    ],
+  },
+  {
+    icon: "KeyRound",
+    name: "AI + SSO Integration",
+    desc: "Identity & Access for AI Platforms",
+    items: [
+      { name: "SSO for AI Platforms", desc: "Entra ID single sign-on for tools like Claude" },
+      { name: "Secure Authentication", desc: "MFA and policy-driven access" },
+      { name: "User Provisioning", desc: "Automated provisioning and lifecycle management" },
+      { name: "Centralized Identity", desc: "One identity across all AI tools" },
+    ],
+  },
+  {
+    icon: "Sparkles",
+    name: "AI Productivity Solutions",
+    desc: "AI for Daily Business Operations",
+    items: [
+      { name: "Knowledge Management", desc: "AI search and insights across company knowledge" },
+      { name: "Document Workflows", desc: "Drafting, summarisation, and review automation" },
+      { name: "Employee Productivity", desc: "AI assist for day-to-day operations" },
+    ],
+  },
+  {
+    icon: "Headset",
+    name: "Managed IT Services",
+    desc: "Proactive Support & Administration",
+    items: [
+      { name: "Proactive Monitoring", desc: "Continuous health and performance monitoring" },
+      { name: "Microsoft 365 Administration", desc: "Tenant, user, and license management" },
+      { name: "Azure Administration", desc: "Resource and subscription management" },
+      { name: "Endpoint Management", desc: "Device enrolment and compliance" },
+      { name: "Security Management", desc: "Threat detection and security posture" },
+      { name: "Ongoing Support & Maintenance", desc: "Responsive support and continuous improvements" },
+    ],
+  },
+  {
+    icon: "Code2",
+    name: "Web Development",
+    desc: "Custom Web Applications & Websites",
+    items: [
+      { name: "Custom Web Applications", desc: "Tailored, scalable application development" },
+      { name: "Responsive Websites", desc: "Mobile-first, cross-device experiences" },
+      { name: "Full-Stack Development", desc: "Modern frontend and backend technologies" },
+      { name: "API Integrations", desc: "Third-party services and API connectivity" },
+      { name: "Modern Tech Stacks", desc: "Support across any modern stack per client requirements" },
     ],
   },
 ];
@@ -97,10 +168,10 @@ function TechPage() {
         <div className="animate-fade-in-up text-center max-w-3xl mx-auto mb-16">
           <span className="text-xs uppercase tracking-[0.2em] text-primary font-semibold">Technologies</span>
           <h1 className="text-4xl md:text-6xl font-bold mt-3 mb-4">
-            Our Microsoft stack
+            Our technology stack
           </h1>
           <p className="text-muted-foreground text-base md:text-lg">
-            Six Microsoft technology areas we work with daily. Every tool, every configuration — deployed from real production experience, not certification alone.
+            Twelve technology areas we work with daily. Every tool, every configuration — deployed from real production experience, not certification alone.
           </p>
         </div>
 

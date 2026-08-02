@@ -1,5 +1,5 @@
 import { createFileRoute, Link, notFound } from "@tanstack/react-router";
-import { CheckCircle2, ArrowLeft, Shield, Smartphone, Bug, ScanEye, Cloud, Settings, type LucideIcon } from "lucide-react";
+import { CheckCircle2, ArrowLeft, Shield, Smartphone, Bug, ScanEye, Cloud, Settings, Bot, KeyRound, Sparkles, FolderKanban, Headset, Code2, type LucideIcon } from "lucide-react";
 import { CTA } from "@/components/site/CTA";
 
 const services = [
@@ -124,9 +124,120 @@ const services = [
     ],
     gradient: "from-[oklch(0.42_0.20_280)] to-[oklch(0.55_0.20_270)]",
   },
+  {
+    slug: "ai-integration",
+    icon: "Bot",
+    title: "AI Integration & Automation",
+    details: "We integrate Microsoft AI across Microsoft 365 and Azure environments — from Microsoft Copilot and Azure AI services to custom intelligent workflows. We plan enterprise AI adoption, automate repeatable processes, and implement AI workloads with identity and access controls from day one.",
+    capabilities: [
+      "Microsoft Copilot and Azure AI service deployment",
+      "Enterprise AI adoption roadmap and rollout",
+      "Workflow automation with Power Platform and AI",
+      "Secure AI implementation with Entra ID access controls",
+    ],
+    useCases: [
+      "Copilot rollout for a 200-user organisation",
+      "Automating document-heavy business processes",
+      "AI assistant deployment with governed access",
+    ],
+    gradient: "from-[oklch(0.55_0.24_310)] to-[oklch(0.63_0.22_320)]",
+  },
+  {
+    slug: "ai-sso",
+    icon: "KeyRound",
+    title: "AI + SSO Integration",
+    details: "Single Sign-On integration for enterprise AI platforms such as Claude using Microsoft Entra ID. We configure secure authentication, automated user provisioning, and centralized identity management — so AI tools inherit your existing security policies, MFA, and Conditional Access.",
+    capabilities: [
+      "Entra ID SSO for AI platforms (Claude and others)",
+      "SAML and OIDC federation configuration",
+      "Automated user provisioning and deprovisioning",
+      "MFA and Conditional Access enforcement for AI tools",
+    ],
+    useCases: [
+      "SSO for Claude Enterprise with Entra ID",
+      "Centralized identity for a suite of AI tools",
+      "Automated onboarding of AI platform users",
+    ],
+    gradient: "from-[oklch(0.50_0.19_235)] to-[oklch(0.60_0.19_225)]",
+  },
+  {
+    slug: "ai-productivity",
+    icon: "Sparkles",
+    title: "AI Productivity Solutions",
+    details: "AI integrations for day-to-day business operations — knowledge management, document workflows, and employee productivity. We deploy and govern AI assistants so your teams can draft, summarise, search, and automate securely inside Microsoft 365.",
+    capabilities: [
+      "AI-powered knowledge management and enterprise search",
+      "Document drafting and summarisation workflows",
+      "Employee productivity assistants across Microsoft 365",
+      "AI usage governance and compliance controls",
+    ],
+    useCases: [
+      "AI knowledge base for a professional services firm",
+      "Automated meeting notes and action items",
+      "Document review and summarisation automation",
+    ],
+    gradient: "from-[oklch(0.60_0.22_330)] to-[oklch(0.68_0.20_340)]",
+  },
+  {
+    slug: "sharepoint-admin",
+    icon: "FolderKanban",
+    title: "SharePoint Administration",
+    details: "Full SharePoint Online administration — site provisioning and governance, permission management, document management, and collaboration. We build structured, governed intranets and document environments your teams actually use.",
+    capabilities: [
+      "SharePoint Online tenant and site administration",
+      "Site provisioning workflows and governance policies",
+      "Site and item-level permission management",
+      "Document libraries, metadata, and versioning",
+      "Team and communication site architecture",
+    ],
+    useCases: [
+      "Intranet build for a 150-user organisation",
+      "SharePoint migration and governance cleanup",
+      "Document management redesign for a growing team",
+    ],
+    gradient: "from-[oklch(0.50_0.17_185)] to-[oklch(0.60_0.17_175)]",
+  },
+  {
+    slug: "managed-it",
+    icon: "Headset",
+    title: "Managed IT Services",
+    details: "Proactive, ongoing IT management on a transparent retainer — monitoring, Microsoft 365 and Azure administration, endpoint management, and security management. Your internal team gets specialist backup without hiring full-time Microsoft experts.",
+    capabilities: [
+      "Proactive infrastructure and security monitoring",
+      "Microsoft 365 tenant administration and support",
+      "Azure resource and subscription management",
+      "Endpoint enrolment, compliance, and maintenance",
+      "Security posture reviews and threat response",
+      "Ongoing helpdesk and operational support",
+    ],
+    useCases: [
+      "Full IT management for a 100-user company",
+      "Supplementing an internal IT team of two",
+      "Ongoing Azure and M365 administration after migration",
+    ],
+    gradient: "from-[oklch(0.45_0.15_240)] to-[oklch(0.55_0.15_230)]",
+  },
+  {
+    slug: "web-development",
+    icon: "Code2",
+    title: "Web Development",
+    details: "Custom web application development and responsive websites — full-stack builds, API integrations, and modern frontend and backend technologies. We support projects built on any modern technology stack, based on your requirements.",
+    capabilities: [
+      "Custom web application development",
+      "Responsive, mobile-first websites",
+      "Full-stack development with modern frontend and backend technologies",
+      "REST and third-party API integrations",
+    ],
+    useCases: [
+      "Internal web application for a growing business",
+      "Company website rebuild on a modern stack",
+      "API integration between business systems",
+    ],
+    gradient: "from-[oklch(0.50_0.20_20)] to-[oklch(0.60_0.20_10)]",
+  },
 ];
 
-const iconMap: Record<string, LucideIcon> = { Shield, Smartphone, Bug, ScanEye, Cloud, Settings };
+const iconMap: Record<string, LucideIcon> = { Shield, Smartphone, Bug, ScanEye, Cloud, Settings, Bot, KeyRound, Sparkles, FolderKanban, Headset, Code2 };
 
 const gradientMap = Object.fromEntries(services.map(s => [s.slug, s.gradient]));
 

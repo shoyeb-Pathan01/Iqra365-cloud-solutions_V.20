@@ -27,7 +27,7 @@ function ServicesPage() {
               Microsoft security, <span className="text-gradient-brand">end to end</span>
             </h1>
             <p className="text-lg text-muted-foreground">
-              Six specialist service areas — each one a Microsoft technology we work with daily. Delivered as projects or ongoing retainers.
+              Twelve specialist service areas — Microsoft-first, practitioner-led, and built on technologies we work with daily. Delivered as projects or ongoing retainers.
             </p>
           </div>
         </div>

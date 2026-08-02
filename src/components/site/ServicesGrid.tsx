@@ -1,4 +1,4 @@
-import { ArrowUpRight, Shield, Smartphone, Bug, ScanEye, Cloud, Settings, type LucideIcon } from "lucide-react";
+import { ArrowUpRight, Shield, Smartphone, Bug, ScanEye, Cloud, Settings, Bot, KeyRound, Sparkles, FolderKanban, Headset, Code2, type LucideIcon } from "lucide-react";
 import { Link } from "@tanstack/react-router";
 
 interface ServiceItem {
@@ -9,7 +9,7 @@ interface ServiceItem {
   gradient: string;
 }
 
-const svcIconMap = { Shield, Smartphone, Bug, ScanEye, Cloud, Settings };
+const svcIconMap = { Shield, Smartphone, Bug, ScanEye, Cloud, Settings, Bot, KeyRound, Sparkles, FolderKanban, Headset, Code2 };
 
 const services: ServiceItem[] = [
   {
@@ -54,6 +54,48 @@ const services: ServiceItem[] = [
     desc: "Ongoing tenant administration, lifecycle management, license optimisation, and operational support on a retainer model.",
     gradient: "from-[oklch(0.42_0.20_280)] to-[oklch(0.55_0.20_270)]",
   },
+  {
+    slug: "ai-integration",
+    icon: "Bot",
+    title: "AI Integration & Automation",
+    desc: "Microsoft AI across M365 and Azure — enterprise AI adoption, workflow automation, and secure AI implementation with identity and access controls.",
+    gradient: "from-[oklch(0.55_0.24_310)] to-[oklch(0.63_0.22_320)]",
+  },
+  {
+    slug: "ai-sso",
+    icon: "KeyRound",
+    title: "AI + SSO Integration",
+    desc: "Single Sign-On for enterprise AI platforms such as Claude using Microsoft Entra ID — secure authentication, provisioning, and centralized identity.",
+    gradient: "from-[oklch(0.50_0.19_235)] to-[oklch(0.60_0.19_225)]",
+  },
+  {
+    slug: "ai-productivity",
+    icon: "Sparkles",
+    title: "AI Productivity Solutions",
+    desc: "AI for day-to-day operations — knowledge management, document workflows, and employee productivity across Microsoft 365.",
+    gradient: "from-[oklch(0.60_0.22_330)] to-[oklch(0.68_0.20_340)]",
+  },
+  {
+    slug: "sharepoint-admin",
+    icon: "FolderKanban",
+    title: "SharePoint Administration",
+    desc: "SharePoint Online administration, site provisioning and governance, permission management, and document collaboration.",
+    gradient: "from-[oklch(0.50_0.17_185)] to-[oklch(0.60_0.17_175)]",
+  },
+  {
+    slug: "managed-it",
+    icon: "Headset",
+    title: "Managed IT Services",
+    desc: "Proactive monitoring, Microsoft 365 and Azure administration, endpoint and security management, and ongoing support.",
+    gradient: "from-[oklch(0.45_0.15_240)] to-[oklch(0.55_0.15_230)]",
+  },
+  {
+    slug: "web-development",
+    icon: "Code2",
+    title: "Web Development",
+    desc: "Custom web applications, responsive websites, full-stack development, and API integrations on modern technology stacks.",
+    gradient: "from-[oklch(0.50_0.20_20)] to-[oklch(0.60_0.20_10)]",
+  },
 ];
 
 export function ServicesGrid({ heading = true }: { heading?: boolean }) {
@@ -64,10 +106,10 @@ export function ServicesGrid({ heading = true }: { heading?: boolean }) {
           <div className="animate-fade-in-up text-center max-w-2xl mx-auto mb-16">
             <span className="text-xs uppercase tracking-[0.2em] text-primary font-semibold">What we do</span>
             <h2 className="text-3xl md:text-5xl font-bold mt-3 mb-4">
-              Six service areas. Microsoft-only.
+              Twelve service areas. Microsoft-first.
             </h2>
             <p className="text-muted-foreground">
-              We don't do generic IT. Every service is a Microsoft security, compliance, or cloud capability we work with daily in production environments.
+              We don't do generic IT. Every service is delivered by certified practitioners who work with these technologies daily in production environments.
             </p>
           </div>
         )}
