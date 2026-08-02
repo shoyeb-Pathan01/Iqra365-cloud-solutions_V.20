@@ -21,7 +21,7 @@ const founders = [
       "SC-401: Microsoft Certified – Information Security Administrator Associate",
       "SC-200: Microsoft Certified – Security Operations Analyst Associate",
     ],
-    bio: "Shoyeb has been working hands-on with Microsoft 365 and Azure security since the beginning of his career. He specialises in Entra ID, Conditional Access, Defender for Endpoint, and Intune — designing and deploying production environments for Indian enterprises. He founded Iqra365 Cloud Solutions to bring enterprise-grade Microsoft security within reach of mid-market companies.",
+    bio: "Shoyeb has been working hands-on with Microsoft 365 and Azure security since the beginning of his career. He specialises in Entra ID, Conditional Access, Defender for Endpoint, and Intune — designing and deploying production environments for enterprises worldwide. He founded Iqra365 Cloud Solutions to bring enterprise-grade Microsoft security within reach of mid-market companies.",
     avatar: null,
   },
   {
@@ -31,7 +31,7 @@ const founders = [
       "Microsoft 365 Certified: Administrator Expert",
       "Microsoft Certified: Security, Compliance, and Identity Fundamentals",
     ],
-    bio: "Musheer brings deep operational expertise in Microsoft 365 tenant administration, Exchange Online, SharePoint, and compliance. He is fluent in Arabic, enabling Iqra365 to serve clients across the Gulf region — UAE, Saudi Arabia, and Qatar — with native-language delivery. His focus is on making Microsoft security practical and sustainable for growing organisations.",
+    bio: "Musheer brings deep operational expertise in Microsoft 365 tenant administration, Exchange Online, SharePoint, and compliance. He is fluent in Arabic and English, enabling Iqra365 to serve clients worldwide with native-language delivery. His focus is on making Microsoft security practical and sustainable for growing organisations.",
     avatar: null,
   },
 ];
@@ -48,7 +48,7 @@ export function FoundersSection() {
             Founded by <span className="text-gradient-brand">practitioners</span>
           </h2>
           <p className="text-muted-foreground mt-4 max-w-2xl mx-auto">
-            Two certified Microsoft 365 professionals who saw that Indian mid-market companies were
+            Two certified Microsoft 365 professionals who saw that mid-market companies worldwide were
             being underserved by both large consultancies (too expensive) and generic IT providers
             (not specialised enough).
           </p>
@@ -94,7 +94,7 @@ export function FoundersSection() {
         <div className="animate-fade-in-up mt-10 glass rounded-2xl p-6 md:p-8 text-center">
           <Quote className="h-8 w-8 text-primary/40 mx-auto mb-4" />
           <blockquote className="text-lg md:text-xl font-medium max-w-3xl mx-auto leading-relaxed">
-            "We started Iqra365 because Indian companies deserve Microsoft security expertise that's
+            "We started Iqra365 because companies everywhere deserve Microsoft security expertise that's
             both world-class and accessible. No inflated promises. No boilerplate. Just honest,
             practitioner-led delivery."
           </blockquote>

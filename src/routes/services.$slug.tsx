@@ -19,7 +19,7 @@ const services = [
     useCases: [
       "Securing remote access for a 200-user organisation",
       "JIT privileged access for IT admins and vendors",
-      "DPDP Act identity governance readiness assessment",
+      "Identity governance readiness assessment for data-protection compliance",
       "Migration from legacy AD to cloud-native identity",
     ],
     gradient: "from-[oklch(0.42_0.22_220)] to-[oklch(0.55_0.22_210)]",
@@ -68,7 +68,7 @@ const services = [
     slug: "purview",
     icon: "ScanEye",
     title: "Microsoft Purview (DLP & Compliance)",
-    details: "Data protection and compliance are no longer optional for Indian enterprises. We implement Microsoft Purview solutions for Data Loss Prevention, information protection (sensitivity labels), insider risk management, and compliance posture — mapped to DPDP Act requirements, RBI guidelines, and ISO 27001 controls.",
+    details: "Data protection and compliance are no longer optional for any enterprise. We implement Microsoft Purview solutions for Data Loss Prevention, information protection (sensitivity labels), insider risk management, and compliance posture — mapped to ISO 27001, GDPR, and other data-protection frameworks.",
     capabilities: [
       "Data Loss Prevention policy design and deployment",
       "Sensitivity labels and automatic classification",
@@ -78,8 +78,8 @@ const services = [
       "Compliance posture assessment and remediation roadmap",
     ],
     useCases: [
-      "DPDP Act data protection compliance project",
-      "RBI-mandated information protection for a NBFC",
+      "Data-protection compliance project aligned to GDPR and ISO 27001",
+      "Information protection for a regulated financial services firm",
       "Insider risk monitoring for a 300-user professional services firm",
     ],
     gradient: "from-[oklch(0.42_0.24_250)] to-[oklch(0.55_0.24_240)]",
@@ -99,7 +99,7 @@ const services = [
     ],
     useCases: [
       "Security operations centre build for a mid-market enterprise",
-      "Compliance monitoring for ISO 27001 and RBI guidelines",
+      "Compliance monitoring for ISO 27001 and GDPR",
       "Cloud workload protection for Azure-migrated applications",
     ],
     gradient: "from-[oklch(0.42_0.24_200)] to-[oklch(0.55_0.24_190)]",

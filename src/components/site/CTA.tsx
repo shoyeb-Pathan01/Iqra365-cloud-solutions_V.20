@@ -31,7 +31,7 @@ export function CTA() {
               </Button>
             </div>
             <p className="text-white/70 text-xs mt-6">
-              Arabic support available for Gulf clients. اتصّل بنا باللغة العربية
+              Arabic support available. اتصّل بنا باللغة العربية
             </p>
           </div>
         </div>

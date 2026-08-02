@@ -4,7 +4,7 @@ const facts = [
   { value: "2", suffix: "", label: "Certified Microsoft Practitioners" },
   { value: "6", suffix: "", label: "Microsoft Technology Areas" },
   { value: "24/7", suffix: "", label: "Ongoing Retainer Support" },
-  { value: "India + Gulf", suffix: "", label: "Primary Markets" },
+  { value: "Worldwide", suffix: "", label: "Service Delivery" },
 ];
 
 export function Stats() {

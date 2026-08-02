@@ -37,7 +37,7 @@ const services: ServiceItem[] = [
     slug: "purview",
     icon: "ScanEye",
     title: "Microsoft Purview (DLP & Compliance)",
-    desc: "Data Loss Prevention, information protection, insider risk management, audit, and compliance posture aligned with Indian regulations.",
+    desc: "Data Loss Prevention, information protection, insider risk management, audit, and compliance posture aligned with global and regional regulations.",
     gradient: "from-[oklch(0.42_0.24_250)] to-[oklch(0.55_0.24_240)]",
   },
   {

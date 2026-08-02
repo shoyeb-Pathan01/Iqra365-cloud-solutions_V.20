@@ -13,18 +13,18 @@ const items: Array<{ icon: keyof typeof whyIconMap; title: string; desc: string 
   },
   {
     icon: "Clock",
-    title: "Right-Timing for India Inc.",
-    desc: "DPDP Act compliance deadlines, RBI guidelines, and ISO 27001 audit pressure are creating urgent demand. This is exactly what we're built for.",
+    title: "Right-Timing for a Changing Threat Landscape",
+    desc: "Rising data-protection regulations, evolving cyber threats, and ISO 27001 audit pressure are creating urgent demand. This is exactly what we're built for.",
   },
   {
     icon: "Globe",
-    title: "Arabic & Gulf Capability",
-    desc: "Co-founder Musheer Hashmi is an Arabic speaker, enabling fluent delivery for clients across UAE, Saudi Arabia, and Qatar.",
+    title: "Multilingual, Worldwide Delivery",
+    desc: "Co-founder Musheer Hashmi is fluent in Arabic and English, enabling native-language delivery for clients wherever they operate.",
   },
   {
     icon: "TrendingDown",
     title: "Cost-Effective for Mid-Market",
-    desc: "We deliver specialist Microsoft expertise at rates that make sense for Indian companies with 50–500 users. No big-firm overhead.",
+    desc: "We deliver specialist Microsoft expertise at rates that make sense for mid-market companies with 50–500 users. No big-firm overhead.",
   },
   {
     icon: "HandshakeIcon",
@@ -42,7 +42,7 @@ export function WhyUs() {
         <div className="animate-fade-in-up text-center max-w-2xl mx-auto mb-16">
           <span className="text-xs uppercase tracking-[0.2em] text-accent font-semibold">Why Iqra365</span>
           <h2 className="text-3xl md:text-5xl font-bold mt-3 mb-4">
-            Built for Indian enterprises
+            Built for enterprises worldwide
           </h2>
           <p className="text-muted-foreground">
             Six reasons why mid-market companies choose a specialist Microsoft consultancy over generic IT providers.

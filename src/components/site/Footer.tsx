@@ -23,7 +23,7 @@ export function Footer() {
             <div className="sm:col-span-2 lg:col-span-4">
               <Logo className="h-20 md:h-24 w-auto mb-4" />
               <p className="text-foreground/85 text-sm leading-relaxed max-w-sm">
-                Specialist Microsoft Security & Cloud consultancy for Indian mid-market companies. Founded 2026 by certified M365 practitioners.
+                Specialist Microsoft Security & Cloud consultancy serving mid-market companies worldwide. Founded 2026 by certified M365 practitioners.
               </p>
               <div className="flex items-center gap-3 mt-6">
                 <a href="https://www.linkedin.com/company/iqra365" target="_blank" rel="noopener noreferrer" className="p-2.5 rounded-xl glass hover:bg-primary/20 hover:shadow-glow-azure transition-all" aria-label="LinkedIn">
@@ -91,7 +91,7 @@ export function Footer() {
                 </li>
                 <li className="flex items-start gap-2.5 text-foreground/85">
                   <MapPin className="h-4 w-4 mt-0.5 text-primary shrink-0" />
-                  <span>India (primary) · UAE · Saudi Arabia · Qatar</span>
+                  <span>Serving clients worldwide</span>
                 </li>
               </ul>
               <div className="mt-6">
@@ -112,7 +112,7 @@ export function Footer() {
           <div className="flex items-center gap-4 text-xs text-foreground/85">
             <span>Founded 2026</span>
             <span className="text-border">|</span>
-            <span>India · UAE · Saudi Arabia · Qatar</span>
+            <span>Global delivery</span>
           </div>
         </div>
       </div>

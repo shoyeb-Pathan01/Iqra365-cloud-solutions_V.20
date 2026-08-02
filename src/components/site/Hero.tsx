@@ -4,9 +4,9 @@ import { ArrowRight, Shield, Users, Building2 } from "lucide-react";
 import { AnimatedBackground } from "./AnimatedBackground";
 
 const features = [
-  { icon: Building2, label: "India mid-market focus", value: "Companies with 50–500 users on M365 Business Premium / E3 / E5" },
-  { icon: Shield, label: "Compliance-ready", value: "DPDP Act, RBI guidelines, and ISO 27001 audit preparation" },
-  { icon: Users, label: "Arabic & Gulf capability", value: "Co-founder fluency in Arabic for UAE, Saudi Arabia, and Qatar" },
+  { icon: Building2, label: "Mid-market focus", value: "Companies with 50–500 users on M365 Business Premium / E3 / E5" },
+  { icon: Shield, label: "Compliance-ready", value: "GDPR, ISO 27001, and sector-specific frameworks" },
+  { icon: Users, label: "Multilingual delivery", value: "Co-founder fluency in Arabic and English for clients worldwide" },
 ];
 
 export function Hero() {
@@ -22,11 +22,11 @@ export function Hero() {
 
           <h1 className="text-3xl sm:text-4xl md:text-6xl lg:text-7xl font-bold mb-6 tracking-tight">
             Specialist Microsoft Security.<br className="sm:hidden" />
-            <span className="text-gradient-brand"> For Indian enterprises.</span>
+            <span className="text-gradient-brand"> For enterprises worldwide.</span>
           </h1>
 
           <p className="text-base md:text-lg text-muted-foreground max-w-2xl mx-auto mb-10 leading-relaxed">
-            Two certified M365 practitioners — Shoyeb Khan and Musheer Hashmi — helping Indian companies with 50–500 users secure and optimise their Microsoft environments. No generic IT. No inflated claims. Just deep, daily expertise.
+            Two certified M365 practitioners — Shoyeb Khan and Musheer Hashmi — helping companies with 50–500 users worldwide secure and optimise their Microsoft environments. No generic IT. No inflated claims. Just deep, daily expertise.
           </p>
 
           <div className="flex flex-col sm:flex-row gap-3 justify-center">

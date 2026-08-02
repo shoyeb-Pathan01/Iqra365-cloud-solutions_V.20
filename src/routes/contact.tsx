@@ -123,15 +123,15 @@ function ContactPage() {
                 <MapPin className="h-5 w-5 text-primary mt-0.5" />
                 <div>
                   <div className="font-medium text-sm">Service areas</div>
-                  <div className="text-sm text-muted-foreground">India (primary) · UAE · Saudi Arabia · Qatar</div>
+                  <div className="text-sm text-muted-foreground">Serving clients worldwide</div>
                 </div>
               </div>
             </div>
             <div className="mt-6 p-4 glass rounded-xl">
               <p className="text-sm text-muted-foreground">
-                <span className="font-medium text-foreground">Arabic support available:</span> Our co-founder Musheer Hashmi is fluent in Arabic. Gulf clients can engage in Arabic for requirements, delivery, and ongoing support.
+                <span className="font-medium text-foreground">Arabic support available:</span> Our co-founder Musheer Hashmi is fluent in Arabic. Clients can engage in Arabic for requirements, delivery, and ongoing support.
               </p>
-              <p className="text-xs text-muted-foreground mt-2" dir="rtl">الدعم متاح باللغة العربية للعملاء في الخليج</p>
+              <p className="text-xs text-muted-foreground mt-2" dir="rtl">الدعم متاح باللغة العربية للعملاء حول العالم</p>
             </div>
           </div>
 
@@ -179,7 +179,7 @@ function ContactPage() {
                   </div>
                   <div>
                     <Label htmlFor="message">Tell us about your needs *</Label>
-                    <Textarea id="message" rows={5} value={form.message} onChange={setField("message")} className="mt-1.5" placeholder="What's your current Microsoft environment like? What challenges are you facing? Any specific compliance requirements (DPDP Act, ISO 27001, RBI)? " />
+                    <Textarea id="message" rows={5} value={form.message} onChange={setField("message")} className="mt-1.5" placeholder="What's your current Microsoft environment like? What challenges are you facing? Any specific compliance requirements (ISO 27001, GDPR, SOC 2)? " />
                     {errors.message && <p className="text-xs text-destructive mt-1">{errors.message}</p>}
                   </div>
                   {errors._form && <p className="text-xs text-destructive text-center">{errors._form}</p>}

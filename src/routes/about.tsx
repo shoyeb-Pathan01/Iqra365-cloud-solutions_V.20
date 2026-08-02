@@ -29,7 +29,7 @@ function AboutPage() {
             <p className="text-lg text-muted-foreground leading-relaxed">
               Iqra365 Cloud Solutions was founded in 2026 by Shoyeb Khan and co-founder Musheer Hashmi. 
               Both are certified Microsoft 365 practitioners working hands-on in production environments every day. 
-              We started this company because we saw a gap: Indian mid-market companies with 50–500 users were caught 
+              We started this company because we saw a gap: mid-market companies with 50–500 users were caught 
               between expensive global consultancies and generic IT providers who didn't understand the Microsoft ecosystem deeply enough.
             </p>
           </div>
@@ -43,11 +43,11 @@ function AboutPage() {
           <div className="grid md:grid-cols-2 gap-6 mb-16">
             <div className="glass rounded-2xl p-8">
               <h3 className="text-xs uppercase tracking-[0.2em] text-primary font-semibold mb-3">Mission</h3>
-              <p className="text-lg">Make enterprise-grade Microsoft security accessible and sustainable for Indian mid-market companies — without the big-firm price tag.</p>
+              <p className="text-lg">Make enterprise-grade Microsoft security accessible and sustainable for mid-market companies worldwide — without the big-firm price tag.</p>
             </div>
             <div className="glass rounded-2xl p-8">
               <h3 className="text-xs uppercase tracking-[0.2em] text-accent font-semibold mb-3">Why now</h3>
-              <p className="text-lg">India's DPDP Act, evolving RBI cybersecurity guidelines, and ISO 27001 audit requirements are creating urgent demand for specialist Microsoft security expertise. We're built to meet it.</p>
+              <p className="text-lg">Evolving data-protection regulations, rising cyber threats, and ISO 27001 audit requirements are creating urgent demand for specialist Microsoft security expertise. We're built to meet it.</p>
             </div>
           </div>
 
@@ -59,7 +59,7 @@ function AboutPage() {
               <div className="glass rounded-2xl p-6 ml-12 md:ml-0">
                 <div className="text-sm font-bold text-primary">Before 2026</div>
                 <div className="font-semibold text-lg mt-1">Years of production experience</div>
-                <p className="text-sm text-muted-foreground mt-1">Both founders built their careers deploying and managing Microsoft 365, Entra ID, Intune, Defender, and Azure for Indian enterprises — as practitioners, not consultants.</p>
+                <p className="text-sm text-muted-foreground mt-1">Both founders built their careers deploying and managing Microsoft 365, Entra ID, Intune, Defender, and Azure for enterprises across industries and markets — as practitioners, not consultants.</p>
               </div>
             </div>
             <div className="animate-fade-in-up relative mb-8 md:w-1/2 md:pl-12 md:ml-auto">
@@ -67,7 +67,7 @@ function AboutPage() {
               <div className="glass rounded-2xl p-6 ml-12 md:ml-0">
                 <div className="text-sm font-bold text-primary">2026</div>
                 <div className="font-semibold text-lg mt-1">Iqra365 Cloud Solutions founded</div>
-                <p className="text-sm text-muted-foreground mt-1">Shoyeb and Musheer launch Iqra365 to bring specialist Microsoft security and cloud expertise directly to Indian mid-market companies — with a transparent, practitioner-led approach.</p>
+                <p className="text-sm text-muted-foreground mt-1">Shoyeb and Musheer launch Iqra365 to bring specialist Microsoft security and cloud expertise directly to mid-market companies worldwide — with a transparent, practitioner-led approach.</p>
               </div>
             </div>
             <div className="animate-fade-in-up relative mb-8 md:w-1/2 md:pr-12">
@@ -75,7 +75,7 @@ function AboutPage() {
               <div className="glass rounded-2xl p-6 ml-12 md:ml-0">
                 <div className="text-sm font-bold text-primary">Today & beyond</div>
                 <div className="font-semibold text-lg mt-1">Building our first client relationships</div>
-                <p className="text-sm text-muted-foreground mt-1">We're actively engaging with Indian companies navigating DPDP Act compliance, Microsoft security hardening, and cloud optimisation. Our first case studies will be published with client consent.</p>
+                <p className="text-sm text-muted-foreground mt-1">We're actively engaging with companies worldwide navigating data-protection compliance, Microsoft security hardening, and cloud optimisation. Our first case studies will be published with client consent.</p>
               </div>
             </div>
           </div>
